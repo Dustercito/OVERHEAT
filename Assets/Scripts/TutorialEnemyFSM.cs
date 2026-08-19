@@ -1,35 +1,27 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(CerebroJefeTutorial))]
 public class TutorialEnemyFSM : MonoBehaviour
 {
-    // Estados de la Maquina de Estados Finita (FSM)
-    public enum EstadoEnemigo { ESPERA, PERSECUCION, ATAQUE, RECUPERACION }
+    public enum EstadoEnemigo { PATRULLA, PERSECUCION, ATAQUE, RECUPERACION }
 
-    [Header("Referencias")]
-    [SerializeField] private Transform posicionJugador;
-    [SerializeField] private MeshRenderer rendererEnemigo;
+    [Header("Estado Actual")]
+    [SerializeField] private EstadoEnemigo estadoActual = EstadoEnemigo.PATRULLA;
 
-    [Header("Parametros de IA")]
-    [SerializeField] private float distanciaDeteccion = 10.0f;
-    [SerializeField] private float distanciaAtaque = 3.5f;
-    [SerializeField] private float velocidadPersecucion = 2.5f;
+    private CerebroJefeTutorial cerebro;
 
-    [Header("Tiempos Tutorial")]
-    [SerializeField] private float duracionAlerta = 0.8f;       // Tiempo de alerta (rojo)
-    [SerializeField][Range(0.05f, 1.0f)] private float duracionEmbestida = 0.3f; // Tiempo de embestida (menor = mas rapido)
-    [SerializeField] private float duracionAturdimiento = 2.0f;     // Tiempo de descanso/aturdimiento (azul)
-
-    private EstadoEnemigo estadoActual = EstadoEnemigo.ESPERA;
-    private Vector3 posicionObjetivoAtacar;
+    private void Awake()
+    {
+        cerebro = GetComponent<CerebroJefeTutorial>();
+    }
 
     private void Update()
     {
-        // Maquina de estados principal
         switch (estadoActual)
         {
-            case EstadoEnemigo.ESPERA:
-                ProcesarEspera();
+            case EstadoEnemigo.PATRULLA:
+                ProcesarPatrulla();
                 break;
 
             case EstadoEnemigo.PERSECUCION:
@@ -37,88 +29,58 @@ public class TutorialEnemyFSM : MonoBehaviour
                 break;
 
             case EstadoEnemigo.ATAQUE:
-                // Se procesa mediante corrutina
                 break;
 
             case EstadoEnemigo.RECUPERACION:
-                // Se procesa mediante corrutina
                 break;
         }
     }
 
-    private void ProcesarEspera()
+    private void ProcesarPatrulla()
     {
-        if (posicionJugador == null) return;
+        cerebro.MoverEnPatrulla();
 
-        // Detectar si el jugador esta dentro del rango de alerta
-        float distAlJugador = Vector3.Distance(transform.position, posicionJugador.position);
-        if (distAlJugador <= distanciaDeteccion)
+        // Ahora solo persigue si el jugador entra en su cono de vision y no hay obstaculos
+        if (cerebro.PuedeVerAlJugador())
         {
-            estadoActual = EstadoEnemigo.PERSECUCION;
+            CambiarEstado(EstadoEnemigo.PERSECUCION);
         }
     }
 
     private void ProcesarPersecucion()
     {
-        if (posicionJugador == null) return;
+        float dist = cerebro.ObtenerDistanciaAlJugador();
 
-        float distanciaAlJugador = Vector3.Distance(transform.position, posicionJugador.position);
+        cerebro.MoverHaciaJugador();
 
-        // Orientar enemigo hacia el jugador en el eje horizontal (Y)
-        Vector3 direccionEnemigo = (posicionJugador.position - transform.position).normalized;
-        direccionEnemigo.y = 0;
-        transform.rotation = Quaternion.LookRotation(direccionEnemigo);
-
-        // Avanzar hacia el jugador
-        transform.position += transform.forward * velocidadPersecucion * Time.deltaTime;
-
-        // Cambiar a estado de ataque al entrar en rango
-        if (distanciaAlJugador <= distanciaAtaque)
+        if (dist <= cerebro.DistanciaAtaque)
         {
-            StartCoroutine(RutinaEmbestida());
+            StartCoroutine(RutinaCicloAtaque());
         }
     }
 
-    private IEnumerator RutinaEmbestida()
+    private IEnumerator RutinaCicloAtaque()
     {
-        estadoActual = EstadoEnemigo.ATAQUE;
+        CambiarEstado(EstadoEnemigo.ATAQUE);
 
-        // Feedback visual: Rojo al empezar ataque
-        if (rendererEnemigo != null) rendererEnemigo.material.color = Color.red;
+        cerebro.CambiarColorVisual(Color.red);
 
-        // Guardar la posicion del jugador antes de embestir
-        posicionObjetivoAtacar = posicionJugador.position;
-        yield return new WaitForSeconds(duracionAlerta);
+        yield return new WaitForSeconds(cerebro.DuracionAlerta);
 
-        // Embestida y duracion
-        float temp = 0f;
-        Vector3 posInicio = transform.position;
+        yield return StartCoroutine(cerebro.RutinaEmbestidaFisica());
 
-        while (temp < duracionEmbestida)
-        {
-            transform.position = Vector3.Lerp(posInicio, posicionObjetivoAtacar, temp / duracionEmbestida);
-            temp += Time.deltaTime;
-            yield return null;
-        }
+        CambiarEstado(EstadoEnemigo.RECUPERACION);
+        cerebro.CambiarColorVisual(Color.blue);
 
-        // Estado de recuperacion: Azul al quedar aturdido
-        estadoActual = EstadoEnemigo.RECUPERACION;
-        if (rendererEnemigo != null) rendererEnemigo.material.color = Color.blue;
+        yield return new WaitForSeconds(cerebro.DuracionAturdimiento);
 
-        yield return new WaitForSeconds(duracionAturdimiento);
+        cerebro.CambiarColorVisual(Color.grey);
 
-        // Restaurar estado original y perseguir nuevamente
-        if (rendererEnemigo != null) rendererEnemigo.material.color = Color.grey;
-        estadoActual = EstadoEnemigo.PERSECUCION;
+        CambiarEstado(EstadoEnemigo.PERSECUCION);
     }
 
-    // Dibujar rangos en el editor (Gizmos), esta increible :D
-    private void OnDrawGizmosSelected()
+    private void CambiarEstado(EstadoEnemigo nuevoEstado)
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, distanciaDeteccion);
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, distanciaAtaque);
+        estadoActual = nuevoEstado;
     }
 }
