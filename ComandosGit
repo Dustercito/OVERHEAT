@@ -1,0 +1,21 @@
+Descargar:
+git pull
+
+Subir:
+git add .
+git commit -m "Avances en la clase: describe brevemente lo que hiciste"
+git push
+
+EstadoArchivos:
+git status
+
+HistorialCambios:
+git log --oneline -n 5
+
+BorrarCambiosLocales:
+git reset --hard
+
+DatosUsuario:
+git config --global --list
+
+
