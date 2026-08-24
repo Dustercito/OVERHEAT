@@ -21,7 +21,15 @@ public class CerebroJefeTutorial : MonoBehaviour
     [SerializeField] private Transform[] puntosPatrulla;
     [SerializeField] private float velocidadPatrulla = 1.5f;
     [SerializeField] private float distanciaCambioPunto = 0.5f;
+    [SerializeField] private float velocidadRotacion = 5.0f;
     private int indicePuntoActual = 0;
+
+    [Header("Comportamiento Variable de Patrulla")]
+    [SerializeField] private float tiempoEsperaMin = 1.0f;   // <-- VARIABLE AÑADIDA
+    [SerializeField] private float tiempoEsperaMax = 3.0f;   // <-- VARIABLE AÑADIDA
+    [SerializeField][Range(0, 100)] private int probabilidadRegresar = 25;
+    [SerializeField][Range(0, 100)] private int probabilidadAleatorio = 30;
+    private bool estaEsperandoPunto = false;                 // <-- VARIABLE AÑADIDA
 
     [Header("Tiempos Tutorial")]
     [SerializeField] private float duracionAlerta = 0.8f;
@@ -42,16 +50,13 @@ public class CerebroJefeTutorial : MonoBehaviour
         Vector3 direccionHaciaJugador = (posicionJugador.position - transform.position);
         float distancia = direccionHaciaJugador.magnitude;
 
-        // 1. CONDICION DE PROXIMIDAD (Escucha al jugador si se acerca demasiado por la espalda)
         if (distancia <= distanciaProximidad)
         {
             return true;
         }
 
-        // Si esta fuera del rango de deteccion lejano, no hace nada
         if (distancia > distanciaDeteccion) return false;
 
-        // 2. CONDICION DE VISION (Cono de vision + Raycast)
         direccionHaciaJugador.y = 0;
         float angulo = Vector3.Angle(transform.forward, direccionHaciaJugador);
 
@@ -63,7 +68,7 @@ public class CerebroJefeTutorial : MonoBehaviour
 
             if (!Physics.Raycast(origenRayo, dirRayo, distancia, capasObstaculos))
             {
-                return true; // Jugador visto de frente
+                return true;
             }
         }
 
@@ -78,7 +83,7 @@ public class CerebroJefeTutorial : MonoBehaviour
 
     public void MoverEnPatrulla()
     {
-        if (puntosPatrulla == null || puntosPatrulla.Length == 0) return;
+        if (puntosPatrulla == null || puntosPatrulla.Length == 0 || estaEsperandoPunto) return;
 
         Transform puntoObjetivo = puntosPatrulla[indicePuntoActual];
         if (puntoObjetivo == null) return;
@@ -88,7 +93,8 @@ public class CerebroJefeTutorial : MonoBehaviour
 
         if (direccionPunto != Vector3.zero)
         {
-            transform.rotation = Quaternion.LookRotation(direccionPunto.normalized);
+            Quaternion rotacionObjetivo = Quaternion.LookRotation(direccionPunto.normalized);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, velocidadRotacion * Time.deltaTime);
         }
 
         transform.position += transform.forward * velocidadPatrulla * Time.deltaTime;
@@ -98,8 +104,33 @@ public class CerebroJefeTutorial : MonoBehaviour
 
         if (Vector3.Distance(posEnemigoPlana, posPuntoPlana) <= distanciaCambioPunto)
         {
+            StartCoroutine(RutinaDecidirSiguientePunto());
+        }
+    }
+
+    private IEnumerator RutinaDecidirSiguientePunto()
+    {
+        estaEsperandoPunto = true;
+
+        float tiempoEspera = Random.Range(tiempoEsperaMin, tiempoEsperaMax);
+        yield return new WaitForSeconds(tiempoEspera);
+
+        int azar = Random.Range(0, 100);
+
+        if (azar < probabilidadRegresar)
+        {
+            indicePuntoActual = (indicePuntoActual - 1 + puntosPatrulla.Length) % puntosPatrulla.Length;
+        }
+        else if (azar < (probabilidadRegresar + probabilidadAleatorio))
+        {
+            indicePuntoActual = Random.Range(0, puntosPatrulla.Length);
+        }
+        else
+        {
             indicePuntoActual = (indicePuntoActual + 1) % puntosPatrulla.Length;
         }
+
+        estaEsperandoPunto = false;
     }
 
     public void MoverHaciaJugador()
@@ -126,7 +157,10 @@ public class CerebroJefeTutorial : MonoBehaviour
 
         while (temp < duracionEmbestida)
         {
-            transform.position = Vector3.Lerp(posInicio, posicionObjetivoAtacar, temp / duracionEmbestida);
+            float t = temp / duracionEmbestida;
+            float curvaSuave = Mathf.Sin(t * Mathf.PI * 0.5f);
+
+            transform.position = Vector3.Lerp(posInicio, posicionObjetivoAtacar, curvaSuave);
             temp += Time.deltaTime;
             yield return null;
         }
@@ -140,18 +174,14 @@ public class CerebroJefeTutorial : MonoBehaviour
         }
     }
 
-    // Dibujar en el editor (Gizmos)
     private void OnDrawGizmos()
     {
-        // Rango de ataque
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, distanciaAtaque);
 
-        // Radio de proximidad (Escucha)
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, distanciaProximidad);
 
-        // Lineas del cono de vision FOV
         Gizmos.color = Color.yellow;
         Vector3 limiteIzquierdo = DirDesdeAngulo(-anguloVision / 2f, false);
         Vector3 limiteDerecho = DirDesdeAngulo(anguloVision / 2f, false);
@@ -159,7 +189,6 @@ public class CerebroJefeTutorial : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + limiteIzquierdo * distanciaDeteccion);
         Gizmos.DrawLine(transform.position, transform.position + limiteDerecho * distanciaDeteccion);
 
-        // Puntos de patrulla
         if (puntosPatrulla == null || puntosPatrulla.Length == 0) return;
 
         for (int i = 0; i < puntosPatrulla.Length; i++)
