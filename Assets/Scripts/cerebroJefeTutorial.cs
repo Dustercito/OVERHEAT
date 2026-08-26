@@ -9,9 +9,14 @@ public class CerebroJefeTutorial : MonoBehaviour
 
     [Header("Parametros de Deteccion y FOV")]
     [SerializeField] private float distanciaDeteccion = 10.0f;
-    [SerializeField] private float distanciaProximidad = 2.0f; // Radio donde escucha/siente al jugador
+    [SerializeField] private float distanciaProximidad = 2.0f; 
+    [SerializeField] private float distanciaPerdida = 15.0f; // <-- PARÁMETRO: Distancia para dejar de buscar
     [SerializeField][Range(0f, 360f)] private float anguloVision = 90.0f;
     [SerializeField] private LayerMask capasObstaculos;
+
+    [Header("Tiempo de Reacción (Delay de Atención)")]
+    [SerializeField] private float tiempoReaccion = 0.5f; // Tiempo en segundos antes de reaccionar
+    private float temporizadorReaccion = 0.0f;
 
     [Header("Parametros de Combate e IA")]
     [SerializeField] private float distanciaAtaque = 3.5f;
@@ -42,34 +47,58 @@ public class CerebroJefeTutorial : MonoBehaviour
     public float DuracionAlerta => duracionAlerta;
     public float DuracionAturdimiento => duracionAturdimiento;
 
-    // --- DETECCION MEJORADA: CONO DE VISION + RADIO DE PROXIMIDAD ---
+    // Modificación al método PuedeVerAlJugador() para incluir el tiempo de reacción
     public bool PuedeVerAlJugador()
     {
-        if (posicionJugador == null) return false;
+        if (posicionJugador == null)
+        {
+            temporizadorReaccion = 0f;
+            return false;
+        }
 
+        bool jugadorEnVistaOProximidad = false;
         Vector3 direccionHaciaJugador = (posicionJugador.position - transform.position);
         float distancia = direccionHaciaJugador.magnitude;
 
+        // 1. CONDICION DE PROXIMIDAD (Escucha al jugador de cerca)
         if (distancia <= distanciaProximidad)
         {
-            return true;
+            jugadorEnVistaOProximidad = true;
+        }
+        // 2. CONDICION DE VISION (Cono + Raycast)
+        else if (distancia <= distanciaDeteccion)
+        {
+            direccionHaciaJugador.y = 0;
+            float angulo = Vector3.Angle(transform.forward, direccionHaciaJugador);
+
+            if (angulo <= anguloVision / 2f)
+            {
+                Vector3 origenRayo = transform.position + Vector3.up * 0.5f;
+                Vector3 destinoRayo = posicionJugador.position + Vector3.up * 0.5f;
+                Vector3 dirRayo = (destinoRayo - origenRayo).normalized;
+
+                if (!Physics.Raycast(origenRayo, dirRayo, distancia, capasObstaculos))
+                {
+                    jugadorEnVistaOProximidad = true;
+                }
+            }
         }
 
-        if (distancia > distanciaDeteccion) return false;
-
-        direccionHaciaJugador.y = 0;
-        float angulo = Vector3.Angle(transform.forward, direccionHaciaJugador);
-
-        if (angulo <= anguloVision / 2f)
+        // LÓGICA DEL TIEMPO DE REACCIÓN:
+        if (jugadorEnVistaOProximidad)
         {
-            Vector3 origenRayo = transform.position + Vector3.up * 0.5f;
-            Vector3 destinoRayo = posicionJugador.position + Vector3.up * 0.5f;
-            Vector3 dirRayo = (destinoRayo - origenRayo).normalized;
+            // El enemigo te tiene localizado y acumula tiempo de atención
+            temporizadorReaccion += Time.deltaTime;
 
-            if (!Physics.Raycast(origenRayo, dirRayo, distancia, capasObstaculos))
+            if (temporizadorReaccion >= tiempoReaccion)
             {
-                return true;
+                return true; // Ya reaccionó del todo y ahora persigue
             }
+        }
+        else
+        {
+            // Si pierdes la línea de vista, el temporizador de reacción se reduce progresivamente
+            temporizadorReaccion = Mathf.Max(0f, temporizadorReaccion - Time.deltaTime * 2f);
         }
 
         return false;
@@ -145,6 +174,16 @@ public class CerebroJefeTutorial : MonoBehaviour
         }
 
         transform.position += transform.forward * velocidadPersecucion * Time.deltaTime;
+    }
+
+    // Método para verificar si el jugador escapó
+    public bool EstaDemasiadoLejos()
+    {
+        if (posicionJugador == null) return true;
+        
+        // Si la distancia actual supera el límite de pérdida, deja de buscar
+        float distancia = Vector3.Distance(transform.position, posicionJugador.position);
+        return distancia > distanciaPerdida;
     }
 
     public IEnumerator RutinaEmbestidaFisica()

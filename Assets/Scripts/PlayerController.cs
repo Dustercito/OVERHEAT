@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     private bool estaEnDash = false;
     private bool puedeDash = true;
 
+    [Header("Armas y Combate")]
+    [SerializeField] private GestorArmas gestorArmas;
+
     [Header("Sensibilidad y Camara")]
     [SerializeField] private Transform transfCamara;
     [SerializeField] private float sensJoystick = 1.0f;
@@ -58,6 +61,19 @@ public class PlayerController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+
+        // --- ENTRADA DE ATAQUE / DISPARO (Clic Izquierdo en PC) ---
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame && Cursor.lockState == CursorLockMode.Locked)
+        {
+            EjecutarAtaque();
+        }
+
+        // --- CAMBIO DE ARMA EN PC (Teclas 1 y 2) ---
+        if (Keyboard.current != null)
+        {
+            if (Keyboard.current.digit1Key.wasPressedThisFrame && gestorArmas != null) gestorArmas.EquiparArma(1);
+            if (Keyboard.current.digit2Key.wasPressedThisFrame && gestorArmas != null) gestorArmas.EquiparArma(2);
         }
 
         // Resetear vector de entrada
@@ -158,6 +174,15 @@ public class PlayerController : MonoBehaviour
 
                 transform.Rotate(Vector3.up * deltaGirosc.y * sensGirosc);
             }
+        }
+    }
+
+    // --- MECANICA DE ATAQUE (ACTIVACION PÚBLICA / UI ANDROID) ---
+    public void EjecutarAtaque()
+    {
+        if (gestorArmas != null)
+        {
+            gestorArmas.EjecutarAtaque();
         }
     }
 

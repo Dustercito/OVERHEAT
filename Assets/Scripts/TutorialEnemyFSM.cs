@@ -49,8 +49,14 @@ public class TutorialEnemyFSM : MonoBehaviour
 
     private void ProcesarPersecucion()
     {
-        float dist = cerebro.ObtenerDistanciaAlJugador();
+        // 1. Si el jugador se alejó demasiado, vuelve a Patrulla
+        if (cerebro.EstaDemasiadoLejos())
+        {
+            CambiarEstado(EstadoEnemigo.PATRULLA);
+            return;
+        }
 
+        float dist = cerebro.ObtenerDistanciaAlJugador();
         cerebro.MoverHaciaJugador();
 
         if (dist <= cerebro.DistanciaAtaque)
