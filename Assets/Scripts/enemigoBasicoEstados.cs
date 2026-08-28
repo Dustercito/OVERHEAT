@@ -2,8 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
-[RequireComponent(typeof(CerebroJefeTutorial))]
-public class TutorialEnemyFSM : MonoBehaviour
+[RequireComponent(typeof(CerebroEnemigoBasico))]
+public class enemigoBasicoEstados : MonoBehaviour
 {
     public enum EstadoEnemigo { PATRULLA, PERSECUCION, ATAQUE, RECUPERACION }
 
@@ -20,11 +20,11 @@ public class TutorialEnemyFSM : MonoBehaviour
     [SerializeField] private SpriteRenderer renderizaSprites;
     [SerializeField] private Transform transformJugador;
 
-    private CerebroJefeTutorial cerebro;
+    private CerebroEnemigoBasico cerebro;
 
     private void Awake()
     {
-        cerebro = GetComponent<CerebroJefeTutorial>();
+        cerebro = GetComponent<CerebroEnemigoBasico>();
     }
 
     private void Update()

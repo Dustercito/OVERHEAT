@@ -1,0 +1,672 @@
+fileFormatVersion: 2
+guid: 19369409728d52860b70280cb68ec2af
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6278e31eb706f629b18b9aa959bf29c
+      internalID: -1259069543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_1
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 800
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 911d409907ef95f0ba42db974ffbcedc
+      internalID: -1495660890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_2
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 800
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9433fd27c19e5b2bd991fb22161140a8
+      internalID: -327504887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_3
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 800
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31e3ac10f3aca2c16994186ce37c4ac6
+      internalID: -905875944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_4
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 800
+        width: 195
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f165ecc3b881ff67bb22efabd6f9920f
+      internalID: 1127853258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_5
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 800
+        width: 196
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d1591eb1dd3ca0358e280b7ef40667c
+      internalID: -82693197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 601
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3faee4b32677b1ebaf179d99919333a
+      internalID: -1906143678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_8
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 601
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b5656262b10938399f227d17bac2f22
+      internalID: 125297967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_9
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 601
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ab73fb6af3d73b92ab27b7119cf4a3a
+      internalID: -1028000654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 402
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ad052bcb26e6c18aad15925e1457d8a
+      internalID: -2131923392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_15
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 402
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc1c7b484c5d3df8867fb70545aad51
+      internalID: -227705617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_16
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 402
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2b8eeb9466029a39a43d5512d33e59
+      internalID: 1623800463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 203
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea5563eded0f84ce0aedd936c4a90815
+      internalID: 1223186532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_19
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 203
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fe277d3787e2169bb541fb133ee6fe4
+      internalID: 325787336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_20
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 203
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c81727aca999d5bc793c21a50993c63a
+      internalID: 1419845269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b804884cf5cf1d668a1d59f3381bb91e
+      internalID: 1501005659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_27
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 4
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32931976a820b4e8abe96cf18232de32
+      internalID: 2088292255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_28
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 4
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75e5b5dc42a42db1aa638c038b7a67a7
+      internalID: -1890431827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_29
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 4
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 747e8cd60b302c4e4a60cc592c8384a5
+      internalID: -933423027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_30
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 4
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31e1090723c4bb487a387b17bfb222a6
+      internalID: -1293909611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_31
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 4
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20c2ba9295d634c888d5590aa753527
+      internalID: -545128014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_32
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 4
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5a7cee705aa40c0082a23bab0e54334
+      internalID: 382509721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_hoja_sprites_chiquillo_COMPLETA_33
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 4
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d92c71e5525b8677aad32794986f758a
+      internalID: 515874503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: be7b50dc2b1a9eddd91ec3fcdb9b7cae
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":5.0},"gridSpriteSize":{"x":197.0,"y":199.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      pixel_hoja_sprites_chiquillo_COMPLETA_0: -1259069543
+      pixel_hoja_sprites_chiquillo_COMPLETA_1: -1495660890
+      pixel_hoja_sprites_chiquillo_COMPLETA_10: 1395171833
+      pixel_hoja_sprites_chiquillo_COMPLETA_11: -1951984626
+      pixel_hoja_sprites_chiquillo_COMPLETA_12: -1212422326
+      pixel_hoja_sprites_chiquillo_COMPLETA_13: 2022372899
+      pixel_hoja_sprites_chiquillo_COMPLETA_14: -2131923392
+      pixel_hoja_sprites_chiquillo_COMPLETA_15: -227705617
+      pixel_hoja_sprites_chiquillo_COMPLETA_16: 1623800463
+      pixel_hoja_sprites_chiquillo_COMPLETA_17: 1112030425
+      pixel_hoja_sprites_chiquillo_COMPLETA_18: 1223186532
+      pixel_hoja_sprites_chiquillo_COMPLETA_19: 325787336
+      pixel_hoja_sprites_chiquillo_COMPLETA_2: -327504887
+      pixel_hoja_sprites_chiquillo_COMPLETA_20: 1419845269
+      pixel_hoja_sprites_chiquillo_COMPLETA_21: 2043487000
+      pixel_hoja_sprites_chiquillo_COMPLETA_22: 578426929
+      pixel_hoja_sprites_chiquillo_COMPLETA_23: 1815048709
+      pixel_hoja_sprites_chiquillo_COMPLETA_24: 331280075
+      pixel_hoja_sprites_chiquillo_COMPLETA_25: -440895599
+      pixel_hoja_sprites_chiquillo_COMPLETA_26: 1501005659
+      pixel_hoja_sprites_chiquillo_COMPLETA_27: 2088292255
+      pixel_hoja_sprites_chiquillo_COMPLETA_28: -1890431827
+      pixel_hoja_sprites_chiquillo_COMPLETA_29: -933423027
+      pixel_hoja_sprites_chiquillo_COMPLETA_3: -905875944
+      pixel_hoja_sprites_chiquillo_COMPLETA_30: -1293909611
+      pixel_hoja_sprites_chiquillo_COMPLETA_31: -545128014
+      pixel_hoja_sprites_chiquillo_COMPLETA_32: 382509721
+      pixel_hoja_sprites_chiquillo_COMPLETA_33: 515874503
+      pixel_hoja_sprites_chiquillo_COMPLETA_4: 1127853258
+      pixel_hoja_sprites_chiquillo_COMPLETA_5: -82693197
+      pixel_hoja_sprites_chiquillo_COMPLETA_6: -1263989912
+      pixel_hoja_sprites_chiquillo_COMPLETA_7: -1906143678
+      pixel_hoja_sprites_chiquillo_COMPLETA_8: 125297967
+      pixel_hoja_sprites_chiquillo_COMPLETA_9: -1028000654
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

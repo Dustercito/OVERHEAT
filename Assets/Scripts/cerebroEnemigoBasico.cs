@@ -1,10 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class CerebroJefeTutorial : MonoBehaviour
+public class CerebroEnemigoBasico : MonoBehaviour
 {
     [Header("Referencias")]
     [SerializeField] private Transform posicionJugador;
+    [SerializeField] private MeshRenderer rendererEnemigo;
 
     [Header("Parametros de Deteccion y FOV")]
     [SerializeField] private float distanciaDeteccion = 10.0f;
@@ -201,6 +202,14 @@ public class CerebroJefeTutorial : MonoBehaviour
             transform.position = Vector3.Lerp(posInicio, posicionObjetivoAtacar, curvaSuave);
             temp += Time.deltaTime;
             yield return null;
+        }
+    }
+
+    public void CambiarColorVisual(Color nuevoColor)
+    {
+        if (rendererEnemigo != null)
+        {
+            rendererEnemigo.material.color = nuevoColor;
         }
     }
 
