@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         // --- CAMBIO DE ARMA EN PC (Teclas 1 y 2) ---
         if (Keyboard.current != null)
         {
-            if (Keyboard.current.digit1Key.wasPressedThisFrame && gestorArmas != null) gestorArmas.EquiparArma(1);
+            if (Keyboard.current.digit1Key.wasPressedThisFPosition respecto a la cámara (X: 0.3, Y: -0.25, Z: 0.5)rame && gestorArmas != null) gestorArmas.EquiparArma(1);
             if (Keyboard.current.digit2Key.wasPressedThisFrame && gestorArmas != null) gestorArmas.EquiparArma(2);
         }
 
