@@ -1,0 +1,1420 @@
+fileFormatVersion: 2
+guid: 8940ee0fe8a0cd16c980f72daffe5fba
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01495eda9c29f5509af98ac77d9011d7
+      internalID: -681343061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_1
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 4000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17755dcf8fb55e50abddc8d3d643628c
+      internalID: 689182226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_2
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 4000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc9e1e976e2b01b1b4513ae6809d431
+      internalID: 1786747231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_3
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 4000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ecfd976cfaf419287f9b1f3d08f0e8
+      internalID: 1894211715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_4
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 4000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03493290d4b3ef5e797c7cbd46dcc392
+      internalID: -243060526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_5
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 4000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e5bac3cee2b98279da78dce6e0f120
+      internalID: -1831283166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_6
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 4000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2031246a0e9c359fa471256b5a67bf9
+      internalID: 1321848070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_7
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 4000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d98a72fa5597c3818f0f2ded854ee9c
+      internalID: 1312918111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0696cffe08c5e2053800ae5ce57f39e7
+      internalID: -642716199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_9
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 3500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58628227c1eb0c05f944db5c1b275742
+      internalID: -1645713953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_10
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 3500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b46a571d180f3249b32f8d634430e2e
+      internalID: 946918767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_11
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 3500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f639b5629580e9c9892681884fd19bb6
+      internalID: 1880498262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_12
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 3500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b33819ea5333df2b48476b5b971851
+      internalID: 1610798802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_13
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 3500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 103225d904be8a9f395bfebea453db5f
+      internalID: -294318216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_14
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 3500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da4bf9f34c47b74b8c2461d8c44f6dc
+      internalID: -1949727505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_15
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 3500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04201eeeb8e99c31d8aeb33e6ebb5c45
+      internalID: -1096339780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3040d2bb2da2bde29b57e1d300d488a
+      internalID: 1949606998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_17
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 3000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f84b5689d5986c0ec93601b057eaa958
+      internalID: -1549845849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_18
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 3000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 583bee034a856b4eda9c03c689b298c3
+      internalID: -1570168444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_19
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 3000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 715ceb97cf1cb9f238e1a05c1183aa0b
+      internalID: -1172685223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_20
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 3000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e65c3bf354776deca949fbb5c85443ab
+      internalID: -2018671931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_21
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 3000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11f7d0b1a6f4c1667ba16a1ca2f36a9d
+      internalID: -2120349466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f62329a9ab40cd248f924cd9c4b5f43
+      internalID: 1857840748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_23
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 2500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9404154896ec3ebaeaed19369ed7b5af
+      internalID: 1687628787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_24
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 2500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e93604fc81332148a3faaca1e76f3d8
+      internalID: -1337457766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_25
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 2500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48e93384f5964c01c9fe80be3bd9e7d9
+      internalID: -238309020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_26
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 2500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 627fd6945c1e0da7c839e06dbbf14ffb
+      internalID: -101979908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ab1609988f152463b07716cd86a109d
+      internalID: -968495330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_28
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 2000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23d53707be5d6ec3cacad014ecf5ce59
+      internalID: -286701693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_29
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 2000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a1c9f7911dfd5728b7b99501d4e7ea
+      internalID: 1737297143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_30
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 2000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92a69a13c12257abbbb12b83037c8f46
+      internalID: 1586845766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_31
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 2000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a11a7e15b5bc0d0caa19c5a2e88aa70
+      internalID: -1531632593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_32
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 2000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28e4399c81bea51a5ad9fac4a81e11f1
+      internalID: -26193863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bb55ac431b71da399d85aa06f0282a9
+      internalID: 1786805340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_34
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 1500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf0b63cfa854e8d47a0c16b6de27590b
+      internalID: 1423529080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_35
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3558d69f1ed20f6c0aba3f3a9a7aae8b
+      internalID: -830600113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_36
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 1500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afae83d299550ea6e895474568b6e49b
+      internalID: -2013214293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_37
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 1500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f692bc35212ffeb388267adc1623f770
+      internalID: 1963853584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b3e5fd0e7ffec94da36f8fb7c2ad914
+      internalID: -1471600232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_39
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 1000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72127d3ec270cddd1b38c891d919ba5b
+      internalID: -473460977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_40
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6104f2fe8bfd7f2dc9d591fab1617d64
+      internalID: -130644911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_41
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 1000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 721cd63ddeecb0fbda59f9adb2726042
+      internalID: 1409796668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_42
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 1000
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ebfd9950772487d97b65e53ccfc7b4
+      internalID: -860369050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_43
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcfc43f237f65a445a4d2afa63fb4930
+      internalID: -1657817177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_44
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c32475a82fa76e5e79f9a5c55e6f19af
+      internalID: 68275928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_45
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d07eacd6fc00c1d9b48249321ab71e
+      internalID: -2697502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_46
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06677031ac8a669089e74cfdabeaa83e
+      internalID: 2015373256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_47
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0761bcd81ba07fa8324cb06b3ad8db
+      internalID: 656653536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_48
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 500
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24cb565cabbf1476ba857bd4832d7fd9
+      internalID: 297758967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86ae8957a435c6d1c862deaebbf48a9c
+      internalID: -292956635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_50
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4731db7f7dc8540eb0500782b20e5c0
+      internalID: -1184944617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_51
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 0
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f37cef0b6263c38a20039beecc7854
+      internalID: 676121548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_52
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 0
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 355de728a0060ff0e940ee631de557d4
+      internalID: 1013866890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_53
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 0
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ec5d9316909a5beb72323fd1c67441
+      internalID: 134345895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_54
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 0
+        width: 520
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e06738c3df96e789d3b94925c839bb
+      internalID: -1388243396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_Altote_pixel_55
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 237
+        width: 3423
+        height: 2187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8207a889be8619beb51a24f5f6ecf3d
+      internalID: -1146971482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 34156ff11a7026a5c9c8ff3d4a6ff263
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":9.0},"gridSpriteSize":{"x":520.0,"y":500.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      hoja_sprites_Altote_pixel_0: -681343061
+      hoja_sprites_Altote_pixel_1: 689182226
+      hoja_sprites_Altote_pixel_10: 946918767
+      hoja_sprites_Altote_pixel_11: 1880498262
+      hoja_sprites_Altote_pixel_12: 1610798802
+      hoja_sprites_Altote_pixel_13: -294318216
+      hoja_sprites_Altote_pixel_14: -1949727505
+      hoja_sprites_Altote_pixel_15: -1096339780
+      hoja_sprites_Altote_pixel_16: 1949606998
+      hoja_sprites_Altote_pixel_17: -1549845849
+      hoja_sprites_Altote_pixel_18: -1570168444
+      hoja_sprites_Altote_pixel_19: -1172685223
+      hoja_sprites_Altote_pixel_2: 1786747231
+      hoja_sprites_Altote_pixel_20: -2018671931
+      hoja_sprites_Altote_pixel_21: -2120349466
+      hoja_sprites_Altote_pixel_22: 1857840748
+      hoja_sprites_Altote_pixel_23: 1687628787
+      hoja_sprites_Altote_pixel_24: -1337457766
+      hoja_sprites_Altote_pixel_25: -238309020
+      hoja_sprites_Altote_pixel_26: -101979908
+      hoja_sprites_Altote_pixel_27: -968495330
+      hoja_sprites_Altote_pixel_28: -286701693
+      hoja_sprites_Altote_pixel_29: 1737297143
+      hoja_sprites_Altote_pixel_3: 1894211715
+      hoja_sprites_Altote_pixel_30: 1586845766
+      hoja_sprites_Altote_pixel_31: -1531632593
+      hoja_sprites_Altote_pixel_32: -26193863
+      hoja_sprites_Altote_pixel_33: 1786805340
+      hoja_sprites_Altote_pixel_34: 1423529080
+      hoja_sprites_Altote_pixel_35: -830600113
+      hoja_sprites_Altote_pixel_36: -2013214293
+      hoja_sprites_Altote_pixel_37: 1963853584
+      hoja_sprites_Altote_pixel_38: -1471600232
+      hoja_sprites_Altote_pixel_39: -473460977
+      hoja_sprites_Altote_pixel_4: -243060526
+      hoja_sprites_Altote_pixel_40: -130644911
+      hoja_sprites_Altote_pixel_41: 1409796668
+      hoja_sprites_Altote_pixel_42: -860369050
+      hoja_sprites_Altote_pixel_43: -1657817177
+      hoja_sprites_Altote_pixel_44: 68275928
+      hoja_sprites_Altote_pixel_45: -2697502
+      hoja_sprites_Altote_pixel_46: 2015373256
+      hoja_sprites_Altote_pixel_47: 656653536
+      hoja_sprites_Altote_pixel_48: 297758967
+      hoja_sprites_Altote_pixel_49: -292956635
+      hoja_sprites_Altote_pixel_5: -1831283166
+      hoja_sprites_Altote_pixel_50: -1184944617
+      hoja_sprites_Altote_pixel_51: 676121548
+      hoja_sprites_Altote_pixel_52: 1013866890
+      hoja_sprites_Altote_pixel_53: 134345895
+      hoja_sprites_Altote_pixel_54: -1388243396
+      hoja_sprites_Altote_pixel_55: -1146971482
+      hoja_sprites_Altote_pixel_6: 1321848070
+      hoja_sprites_Altote_pixel_7: 1312918111
+      hoja_sprites_Altote_pixel_8: -642716199
+      hoja_sprites_Altote_pixel_9: -1645713953
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

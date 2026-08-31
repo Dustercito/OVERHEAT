@@ -1,0 +1,1213 @@
+fileFormatVersion: 2
+guid: 4bd301cc3cadd820ab516f068ad5399c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41748643abea46ddb8ee83d3ef872c50
+      internalID: 1848885559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_1
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 1200
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bfc4e37d0ead0b81934db170d0cea76
+      internalID: 201692969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_2
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 1200
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f23262307f89f4d5bff3cf4dde1a7e5
+      internalID: -1692174241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_3
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 1200
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a6cad75a8e63561ad88553161fa5bb
+      internalID: -1769591486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_4
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 1200
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77b0bb5a5acaa1772a01cd68168216ae
+      internalID: -1363066875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_5
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 1200
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e66cf7973f812531b4da13539cdbd0b
+      internalID: 1045991388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_6
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 1200
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4f2464c3c8550dfe84af387e50de661
+      internalID: 1553231656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1001
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8b9593fa76018420bdcf11ade51391c
+      internalID: -103332064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_8
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 1001
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 797858e9be0fb12b599d63de3658354b
+      internalID: -930893902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_9
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 1001
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145185609c129ab6891ae0037624e581
+      internalID: -894714917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_10
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 1001
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03eaa6edd5b7fecf9b708a9b1172f035
+      internalID: -510848095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_11
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 1001
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e681f98d3b5ad2f50a0f546a6dc785c8
+      internalID: -1196883045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_12
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 1001
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b59542ca151761e93825f5712322ea85
+      internalID: 597646403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 802
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df64ec6dc893f7bfaa5ab56112aadcf3
+      internalID: 1607714590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_14
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 802
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8af09b9c23012997959a925741a4500
+      internalID: -393491881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_15
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 802
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4674c0c1aaf15ad84a5151b0813deeea
+      internalID: -858486270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_16
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 802
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c697a0d73b9a557d881146dec76fee0
+      internalID: 563340806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 603
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 371d212e52d60334eb49f6d9a414bc8e
+      internalID: -284075858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_18
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 603
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96c862c9d838fbc5082209db9a5e3ef0
+      internalID: 1436729905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_19
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 603
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f56e07af793d070cb993bb3e8dfd6b2
+      internalID: -911322667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_20
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 603
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc789ff3f4603190937be63e897e227
+      internalID: 872183619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_21
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 603
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f68f6e4b346a6c559de6713cb005903
+      internalID: 613732555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_22
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 603
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9101ff201c7ebbd06adb32b8e1cdb231
+      internalID: 524678260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_23
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 603
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab97ea9e1ae09fb35be45ada3fcb320e
+      internalID: 110951785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 404
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea6ada781fe5a98fbec4fe06bf2dc3f
+      internalID: 1346286705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_25
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 404
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 166f9ea5b0f029cf097abb45ea2819ec
+      internalID: 700365320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_26
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 404
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ef3edbd4c99857b89b225e3e8a549c7
+      internalID: 1739403517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_27
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 404
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d35f9656767a752aa39fda85d8e1445
+      internalID: -1196426951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_28
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 403
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6107ce8fbb063de0884e3e8710cafb32
+      internalID: -428111916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_29
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 404
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a40848baad7b0d27ab1baa47d96aa49
+      internalID: -890425802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_30
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 404
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e21f3c66e4dfaa17b68fc808a2bcefc
+      internalID: 1091664315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_31
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 404
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19120db59e6ccbf3795023b4ba781e1e
+      internalID: 963913404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 205
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faee7eb34bce5b2e883507932975144d
+      internalID: 1565174421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_33
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 205
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32947d0d1cfca4d93b12f16252f1c38f
+      internalID: -190724868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_34
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 205
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05fc8c29f0e273953ae8af68eec672e9
+      internalID: 1164614430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_35
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 205
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 532814a442a96eaad829f38f831dadd5
+      internalID: -1316252076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_36
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 205
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c90accb1b7e256580ad68c180ff301a0
+      internalID: -707315585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_37
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 205
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e66b6a477785c18d9b9897a19fadd119
+      internalID: 13162941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_38
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 205
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b1940dcee3caae1845c4c336b89f34
+      internalID: -2034747328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_39
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 205
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ea93fbd924832050be319e025e0cb18
+      internalID: 198449066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2388fd6cc0e519a8093947d02f2cbdc6
+      internalID: -1000564684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_41
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 6
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3494f765ebc1e165ebdef5ff5bc612d4
+      internalID: 1391734858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_42
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 6
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30108b1e66a05e749bf25d742f7a7d10
+      internalID: 1180630166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_43
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 5
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de064026868f9f4ba6cfd1a51d0b8d1
+      internalID: 1842447422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_44
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 4
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e0abad0d6cb3bebe8dd401ee5782a4a
+      internalID: -443353987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_45
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 0
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cfde54f0f54d27d6b810001f55f820a
+      internalID: -216538661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hoja_sprites_chiquillo_46
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 48
+        width: 197
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75e8a82a33d553f1b8536ef05abb388e
+      internalID: -1656302606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d817b58031294e78e8653f2091083c48
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":7.0},"gridSpriteSize":{"x":197.0,"y":199.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      hoja_sprites_chiquillo_0: 1848885559
+      hoja_sprites_chiquillo_1: 201692969
+      hoja_sprites_chiquillo_10: -510848095
+      hoja_sprites_chiquillo_11: -1196883045
+      hoja_sprites_chiquillo_12: 597646403
+      hoja_sprites_chiquillo_13: 1607714590
+      hoja_sprites_chiquillo_14: -393491881
+      hoja_sprites_chiquillo_15: -858486270
+      hoja_sprites_chiquillo_16: 563340806
+      hoja_sprites_chiquillo_17: -284075858
+      hoja_sprites_chiquillo_18: 1436729905
+      hoja_sprites_chiquillo_19: -911322667
+      hoja_sprites_chiquillo_2: -1692174241
+      hoja_sprites_chiquillo_20: 872183619
+      hoja_sprites_chiquillo_21: 613732555
+      hoja_sprites_chiquillo_22: 524678260
+      hoja_sprites_chiquillo_23: 110951785
+      hoja_sprites_chiquillo_24: 1346286705
+      hoja_sprites_chiquillo_25: 700365320
+      hoja_sprites_chiquillo_26: 1739403517
+      hoja_sprites_chiquillo_27: -1196426951
+      hoja_sprites_chiquillo_28: -428111916
+      hoja_sprites_chiquillo_29: -890425802
+      hoja_sprites_chiquillo_3: -1769591486
+      hoja_sprites_chiquillo_30: 1091664315
+      hoja_sprites_chiquillo_31: 963913404
+      hoja_sprites_chiquillo_32: 1565174421
+      hoja_sprites_chiquillo_33: -190724868
+      hoja_sprites_chiquillo_34: 1164614430
+      hoja_sprites_chiquillo_35: -1316252076
+      hoja_sprites_chiquillo_36: -707315585
+      hoja_sprites_chiquillo_37: 13162941
+      hoja_sprites_chiquillo_38: -2034747328
+      hoja_sprites_chiquillo_39: 198449066
+      hoja_sprites_chiquillo_4: -1363066875
+      hoja_sprites_chiquillo_40: -1000564684
+      hoja_sprites_chiquillo_41: 1391734858
+      hoja_sprites_chiquillo_42: 1180630166
+      hoja_sprites_chiquillo_43: 1842447422
+      hoja_sprites_chiquillo_44: -443353987
+      hoja_sprites_chiquillo_45: -216538661
+      hoja_sprites_chiquillo_46: -1656302606
+      hoja_sprites_chiquillo_5: 1045991388
+      hoja_sprites_chiquillo_6: 1553231656
+      hoja_sprites_chiquillo_7: -103332064
+      hoja_sprites_chiquillo_8: -930893902
+      hoja_sprites_chiquillo_9: -894714917
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
