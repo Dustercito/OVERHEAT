@@ -189,7 +189,12 @@ public class CerebroJefeTutorial : MonoBehaviour
     {
         if (posicionJugador == null) yield break;
 
+        // 1. Obtener la posición del jugador
         Vector3 posicionObjetivoAtacar = posicionJugador.position;
+
+        // 2. Bloquear la altura Y a la posición actual del enemigo (ej. 0.5)
+        posicionObjetivoAtacar.y = transform.position.y;
+
         float temp = 0f;
         Vector3 posInicio = transform.position;
 
