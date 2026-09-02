@@ -76,6 +76,12 @@ public class PlayerController : MonoBehaviour
             if (Keyboard.current.digit2Key.wasPressedThisFrame && gestorArmas != null) gestorArmas.EquiparArma(2);
         }
 
+        // --- RECARGA DE PISTOLA EN PC (Tecla R) ---
+        if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            EjecutarRecarga();
+        }
+
         // Resetear vector de entrada
         entMov = Vector2.zero;
 
@@ -186,10 +192,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // --- MECANICA DE RECARGA (ACTIVACION PÚBLICA / UI ANDROID) ---
+    public void EjecutarRecarga()
+    {
+        if (gestorArmas != null)
+        {
+            gestorArmas.EjecutarRecarga();
+        }
+    }
+
     // --- MECANICA DE DASH (ACTIVACION PÚBLICA) ---
     public void RealizarDash()
     {
-        // Ejecutar corrutina si no esta en cooldown
         if (puedeDash && !estaEnDash)
         {
             StartCoroutine(RutinaDash());
@@ -202,7 +216,6 @@ public class PlayerController : MonoBehaviour
         puedeDash = false;
         estaEnDash = true;
 
-        // Calcular direccion del impulso (Direccion actual o hacia adelante)
         Vector3 dirDash = transform.right * entMov.x + transform.forward * entMov.y;
         if (dirDash.sqrMagnitude < 0.01f)
         {
@@ -210,7 +223,6 @@ public class PlayerController : MonoBehaviour
         }
         dirDash.Normalize();
 
-        // Aplicar velocidad del Dash durante la duracion configurada
         float temp = 0f;
         while (temp < durDash)
         {
@@ -221,7 +233,6 @@ public class PlayerController : MonoBehaviour
 
         estaEnDash = false;
 
-        // Tiempo de espera para recargar la habilidad
         yield return new WaitForSeconds(recargaDash);
         puedeDash = true;
     }

@@ -357,7 +357,7 @@ TextureImporter:
         serializedVersion: 2
         x: 495
         y: 1086
-        width: 70
+        width: 78
         height: 127
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -369,28 +369,6 @@ TextureImporter:
       bones: []
       spriteID: 2ebcf541b32b90a48b63cfec2ba32198
       internalID: -183093053
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprotes_12
-      rect:
-        serializedVersion: 2
-        x: 557
-        y: 1166
-        width: 11
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fbf149f729c2a7946b074e1f2f0a9cdd
-      internalID: 258362669
       vertices: []
       indices: 
       edges: []

@@ -4,7 +4,7 @@ public class GestorArmas : MonoBehaviour
 {
     [Header("Referencias a las Armas (Hijos del Player/Camara)")]
     [SerializeField] private ArmaCuchillo armaCuchillo;
-    [SerializeField] private ArmaPistola armaPistola; // Crearemos esta mas adelante
+    [SerializeField] private ArmaPistola armaPistola;
 
     [Header("Estado del Inventario (Armas poseidas)")]
     public bool tieneCuchillo = false;
@@ -56,6 +56,7 @@ public class GestorArmas : MonoBehaviour
             armaPistola.gameObject.SetActive(armaActiva == 2);
     }
 
+    // --- ATAQUE / DISPARO SEGUN ARMA EQUIPADA ---
     public void EjecutarAtaque()
     {
         if (armaActiva == 1 && armaCuchillo != null)
@@ -65,6 +66,15 @@ public class GestorArmas : MonoBehaviour
         else if (armaActiva == 2 && armaPistola != null)
         {
             armaPistola.Disparar();
+        }
+    }
+
+    // --- CANALIZACION DE RECARGA PARA LA PISTOLA ---
+    public void EjecutarRecarga()
+    {
+        if (armaActiva == 2 && armaPistola != null)
+        {
+            armaPistola.Recargar();
         }
     }
 }

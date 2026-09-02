@@ -5905,11 +5905,91 @@ PrefabInstance:
     - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
       propertyPath: fuenteAudio
       value: 
-      objectReference: {fileID: 280182867}
+      objectReference: {fileID: 654222296}
     - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
       propertyPath: sonidoDisparo
       value: 
-      objectReference: {fileID: 8300000, guid: c8fe4cc69d6a72a47a978016c6d5bebf, type: 3}
+      objectReference: {fileID: 8300000, guid: 783e9e6cb2577b402b7a8cda242b69cd, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: sonidoRecarga
+      value: 
+      objectReference: {fileID: 8300000, guid: 0c64d10f774bfc9438b7987314fd1934, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: municionActual
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: sonidoSinBalas
+      value: 
+      objectReference: {fileID: 8300000, guid: 8afb3026bd21fff45a9ad86fd3679013, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: spriteDisparo1
+      value: 
+      objectReference: {fileID: 1318925348, guid: df5b6193e7e27f847bfbc7566fab45ac, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: spriteDisparo2
+      value: 
+      objectReference: {fileID: -1302162018, guid: df5b6193e7e27f847bfbc7566fab45ac, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: spriteDisparo3
+      value: 
+      objectReference: {fileID: -122992374, guid: df5b6193e7e27f847bfbc7566fab45ac, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: spriteDisparo4
+      value: 
+      objectReference: {fileID: -183093053, guid: df5b6193e7e27f847bfbc7566fab45ac, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: spriteDisparo5
+      value: 
+      objectReference: {fileID: 1318925348, guid: df5b6193e7e27f847bfbc7566fab45ac, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: spriteRecarga1
+      value: 
+      objectReference: {fileID: 1318925348, guid: df5b6193e7e27f847bfbc7566fab45ac, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: spriteRecarga2
+      value: 
+      objectReference: {fileID: -1813529731, guid: df5b6193e7e27f847bfbc7566fab45ac, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: spriteRecarga3
+      value: 
+      objectReference: {fileID: 1284734484, guid: df5b6193e7e27f847bfbc7566fab45ac, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: spriteRecarga4
+      value: 
+      objectReference: {fileID: -1592246491, guid: df5b6193e7e27f847bfbc7566fab45ac, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: spriteRecarga5
+      value: 
+      objectReference: {fileID: 792746066, guid: df5b6193e7e27f847bfbc7566fab45ac, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: spriteSinBalas
+      value: 
+      objectReference: {fileID: 792746066, guid: df5b6193e7e27f847bfbc7566fab45ac, type: 3}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: tamanoCargador
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: duracionFrameDisparo1
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: duracionFrameDisparo2
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: duracionFrameDisparo3
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: duracionFrameDisparo4
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238081067618125347, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+      propertyPath: duracionFrameDisparo5
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 8613936165528836503, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
       propertyPath: m_Name
       value: jugador
@@ -5922,6 +6002,11 @@ PrefabInstance:
 --- !u!4 &654222295 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7636504636090098961, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
+  m_PrefabInstance: {fileID: 654222294}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &654222296 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7050750035084586344, guid: 017bc02a7c014354a85a605e7b9f52f0, type: 3}
   m_PrefabInstance: {fileID: 654222294}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &657711193
