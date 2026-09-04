@@ -4,6 +4,7 @@ using UnityEngine.Rendering; // Requerido para ShadowCastingMode
 public class CarteleraSprite : MonoBehaviour
 {
     private Transform transformCamara;
+    private SpriteRenderer renderizadorSprite;
 
     private void Start()
     {
@@ -14,7 +15,7 @@ public class CarteleraSprite : MonoBehaviour
         }
 
         // 2. Activar la construccion y recepcion de sombras en el SpriteRenderer
-        SpriteRenderer renderizadorSprite = GetComponent<SpriteRenderer>();
+        renderizadorSprite = GetComponent<SpriteRenderer>();
         if (renderizadorSprite != null)
         {
             renderizadorSprite.shadowCastingMode = ShadowCastingMode.On;
@@ -34,6 +35,16 @@ public class CarteleraSprite : MonoBehaviour
         if (direccionCamara != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(direccionCamara);
+        }
+    }
+
+    // --- MODIFICACIÓN: Control de intensidad de brillo en escala de blancos ---
+    public void CambiarBrillo(float intensidad)
+    {
+        if (renderizadorSprite != null)
+        {
+            // Mantiene el color original multiplicando el blanco base por la intensidad
+            renderizadorSprite.color = new Color(intensidad, intensidad, intensidad, 1f);
         }
     }
 }

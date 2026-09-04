@@ -15,20 +15,27 @@ public class enemigoBasicoEstados : MonoBehaviour
     [SerializeField] private AudioSource fuenteAudio;
     [SerializeField] private AudioClip clipAlerta;
     [SerializeField] private AudioClip clipAtaque;
+    [SerializeField] private CarteleraSprite cartelera;
 
     [Header("Visuales")]
     [SerializeField] private SpriteRenderer renderizaSprites;
     [SerializeField] private Transform transformJugador;
 
     private CerebroEnemigoBasico cerebro;
+    private Vector3 posicionAnterior;
 
     private void Awake()
     {
         cerebro = GetComponent<CerebroEnemigoBasico>();
+        cartelera = GetComponentInChildren<CarteleraSprite>();
     }
+    
 
     private void Update()
     {
+        // 1. AHORA SÍ: Esta línea enviará las velocidades al Animator en todo momento
+        EnviarVelocidadAlAnimador();
+
         switch (estadoActual)
         {
             case EstadoEnemigo.PATRULLA:
@@ -52,7 +59,6 @@ public class enemigoBasicoEstados : MonoBehaviour
     {
         cerebro.MoverEnPatrulla();
 
-        // Ahora solo persigue si el jugador entra en su cono de vision y no hay obstaculos
         if (cerebro.PuedeVerAlJugador())
         {
             VoltearHaciaJugador();
@@ -67,7 +73,6 @@ public class enemigoBasicoEstados : MonoBehaviour
 
     private void ProcesarPersecucion()
     {
-        // 1. Si el jugador se alejó demasiado, vuelve a Patrulla
         if (cerebro.EstaDemasiadoLejos())
         {
             CambiarEstado(EstadoEnemigo.PATRULLA);
@@ -103,17 +108,37 @@ public class enemigoBasicoEstados : MonoBehaviour
 
         yield return new WaitForSeconds(cerebro.DuracionAturdimiento);
 
-
         CambiarEstado(EstadoEnemigo.PERSECUCION);
     }
 
-    private void CambiarEstado(EstadoEnemigo nuevoEstado)
+  private void CambiarEstado(EstadoEnemigo nuevoEstado)
     {
         estadoActual = nuevoEstado;
 
+        // Intensidad de brillo por estado
+        if (cartelera != null)
+        {
+            switch (estadoActual)
+            {
+                case EstadoEnemigo.PATRULLA:
+                    cartelera.CambiarBrillo(1.0f); // Brillo normal (100%)
+                    break;
+                case EstadoEnemigo.PERSECUCION:
+                    cartelera.CambiarBrillo(1.4f); // Más brillante (alerta/activo)
+                    break;
+                case EstadoEnemigo.ATAQUE:
+                    cartelera.CambiarBrillo(2.0f); // Destello máximo de ataque
+                    break;
+                case EstadoEnemigo.RECUPERACION:
+                    cartelera.CambiarBrillo(0.4f); // Opaco/oscurecido (aturdido)
+                    break;
+            }
+        }
+
         if (Animador != null)
         {
-            Animador.SetBool("Corriendo", estadoActual == EstadoEnemigo.PERSECUCION);
+            bool estaMoviendose = (estadoActual == EstadoEnemigo.PERSECUCION || estadoActual == EstadoEnemigo.PATRULLA);
+            Animador.SetBool("Corriendo", estaMoviendose);
         }
     }
 
@@ -121,15 +146,38 @@ public class enemigoBasicoEstados : MonoBehaviour
     {
         if (transformJugador == null || renderizaSprites == null) return;
 
-        // Si el jugador está a la derecha del monstruo
         if (transformJugador.position.x > transform.position.x)
         {
-            renderizaSprites.flipX = false; // Cambia esto a 'true' si el dibujo original mira a la izquierda
+            renderizaSprites.flipX = false; 
         }
-        // Si el jugador está a la izquierda
         else if (transformJugador.position.x < transform.position.x)
         {
-            renderizaSprites.flipX = true; // Cambia esto a 'false' si tu dibujo original mira a la izquierda
+            renderizaSprites.flipX = true; 
         }
     }
+
+private void EnviarVelocidadAlAnimador()
+{
+    if (Animador == null) return;
+
+    // 1. Calculamos hacia dónde se movió REALMENTE en este fotograma
+    Vector3 direccionMovimiento = (transform.position - posicionAnterior).normalized;
+
+    // 2. Comparamos qué movimiento es más fuerte para no confundir al Animator
+    if (Mathf.Abs(direccionMovimiento.x) > Mathf.Abs(direccionMovimiento.z))
+    {
+        // Se mueve más de lado
+        Animador.SetFloat("VelocidadX", Mathf.Abs(direccionMovimiento.x));
+        Animador.SetFloat("VelocidadY", 0f);
+    }
+    else
+    {
+        // Se mueve más hacia el fondo o el frente
+        Animador.SetFloat("VelocidadX", 0f);
+        Animador.SetFloat("VelocidadY", direccionMovimiento.z); // Cambia la 'z' por 'y' si es 2D puro
+    }
+
+    // 3. Guardamos la posición actual para el siguiente fotograma
+    posicionAnterior = transform.position;
+}
 }
