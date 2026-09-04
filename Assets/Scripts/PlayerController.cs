@@ -26,20 +26,60 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float sensGirosc = 1.2f;
     [SerializeField] private float sensMouse = 0.2f;
 
+    [Header("Efecto Camara Doom (Head Bobbing)")]
+    [SerializeField] private bool usarEfectoBobbing = true;
+    [SerializeField] private float frecuenciaBobbing = 12.0f; 
+    [SerializeField] private float amplitudBobbingY = 0.05f;  
+    [SerializeField] private float amplitudBobbingX = 0.03f;  
+    [SerializeField] private float velocidadSuavizado = 8.0f; 
+
+    [Header("Configuracion de Sonidos de Pasos")]
+    [SerializeField] private AudioSource fuenteAudioPasos;
+    [SerializeField] private AudioClip[] sonidosPasos;
+    [SerializeField] [Range(0.1f, 1.0f)] private float volumenPasos = 0.5f;
+    [SerializeField] private float intervaloPasos = 0.45f; 
+    private float temporizadorPasos = 0.0f;
+
+    [Header("Configuracion de Linterna")]
+    [SerializeField] private Light luzLinterna;
+    [SerializeField] private AudioClip sonidoInterruptorLinterna;
+    private bool linternaEncendida = true;
+
     // --- VARIABLES INTERNAS ---
     private Vector2 entMov;
     private Vector2 entCam;
     private float rotVert = 0.0f;
     private Vector3 velVert;
 
+    private Vector3 posInicialCamara;
+    private float temporizadorBobbing = 0.0f;
+
     // --- INICIALIZACION ---
     private void Start()
     {
-        // Ocultar y bloquear cursor para PC
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        // Habilitar giroscopio en moviles si esta disponible
+        if (transfCamara != null)
+        {
+            posInicialCamara = transfCamara.localPosition;
+        }
+
+        if (fuenteAudioPasos == null)
+        {
+            fuenteAudioPasos = GetComponent<AudioSource>();
+            if (fuenteAudioPasos == null)
+            {
+                fuenteAudioPasos = gameObject.AddComponent<AudioSource>();
+            }
+        }
+
+        // Asegurar estado inicial de la linterna
+        if (luzLinterna != null)
+        {
+            luzLinterna.enabled = linternaEncendida;
+        }
+
         if (UnityEngine.InputSystem.Gyroscope.current != null)
         {
             InputSystem.EnableDevice(UnityEngine.InputSystem.Gyroscope.current);
@@ -49,50 +89,48 @@ public class PlayerController : MonoBehaviour
     // --- BUCLE PRINCIPAL DE LOGICA ---
     private void Update()
     {
-        // Liberar cursor en PC con la tecla ESC
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
 
-        // Volver a bloquear cursor al dar clic en la pantalla
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame && Cursor.lockState == CursorLockMode.None)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
 
-        // --- ENTRADA DE ATAQUE / DISPARO (Clic Izquierdo en PC) ---
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame && Cursor.lockState == CursorLockMode.Locked)
         {
             EjecutarAtaque();
         }
 
-        // --- CAMBIO DE ARMA EN PC (Teclas 1 y 2) ---
         if (Keyboard.current != null)
         {
             if (Keyboard.current.digit1Key.wasPressedThisFrame && gestorArmas != null) gestorArmas.EquiparArma(1);
             if (Keyboard.current.digit2Key.wasPressedThisFrame && gestorArmas != null) gestorArmas.EquiparArma(2);
+            
+            // Alternar Linterna con la tecla F en PC
+            if (Keyboard.current.fKey.wasPressedThisFrame)
+            {
+                AlternarLinterna();
+            }
         }
 
-        // --- RECARGA DE PISTOLA EN PC (Tecla R) ---
         if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
         {
             EjecutarRecarga();
         }
 
-        // Resetear vector de entrada
         entMov = Vector2.zero;
 
-        // Leer Joysticks (Gamepad / Pantalla tactil Android)
         if (Gamepad.current != null)
         {
             entMov = Gamepad.current.leftStick.ReadValue();
             entCam = Gamepad.current.rightStick.ReadValue();
         }
 
-        // Leer Teclado WASD en PC (si no hay Joystick activo)
         if (entMov.sqrMagnitude < 0.01f && Keyboard.current != null)
         {
             float x = 0f;
@@ -106,34 +144,30 @@ public class PlayerController : MonoBehaviour
             entMov = new Vector2(x, y).normalized;
         }
 
-        // Activar Dash con la tecla Espacio en PC
         if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             RealizarDash();
         }
 
-        // Ejecutar calculo de fisicas y rotacion de camara
         ProcesarMovimiento();
         ProcesarVista();
+        ProcesarEfectoDoomCamara();
+        ProcesarSonidoPasos();
     }
 
     // --- LOGICA DE MOVIMIENTO Y GRAVEDAD ---
     private void ProcesarMovimiento()
     {
-        // Cancelar movimiento normal durante el Dash
         if (estaEnDash) return;
 
-        // Estabilizar personaje en el suelo
         if (contrPers.isGrounded && velVert.y < 0)
         {
             velVert.y = -2f;
         }
 
-        // Movimiento horizontal relativo a la rotacion del jugador
         Vector3 dirMov = transform.right * entMov.x + transform.forward * entMov.y;
         contrPers.Move(dirMov * velMov * Time.deltaTime);
 
-        // Aplicar fuerza de gravedad vertical
         velVert.y += gravedad * Time.deltaTime;
         contrPers.Move(velVert * Time.deltaTime);
     }
@@ -141,33 +175,28 @@ public class PlayerController : MonoBehaviour
     // --- LOGICA DE VISTA Y CAMARA (PC / ANDROID) ---
     private void ProcesarVista()
     {
-        // Modo 1: Control de camara con Mouse (PC)
         if (Mouse.current != null && Cursor.lockState == CursorLockMode.Locked)
         {
             Vector2 deltaMouse = Mouse.current.delta.ReadValue();
 
-            // Rotacion vertical (Camara) con limite de inclinacion
             rotVert -= deltaMouse.y * sensMouse;
             rotVert = Mathf.Clamp(rotVert, -80f, 80f);
-            transfCamara.localRotation = Quaternion.Euler(rotVert, 0f, 0f);
+            transfCamara.localRotation = Quaternion.Euler(rotVert, transfCamara.localRotation.eulerAngles.y, 0f);
 
-            // Rotacion horizontal (Cuerpo del personaje)
             transform.Rotate(Vector3.up * deltaMouse.x * sensMouse);
             return;
         }
 
-        // Modo 2: Control con el Joystick Derecho (UI Android / Gamepad)
         if (entCam.sqrMagnitude > 0.01f)
         {
             rotVert -= entCam.y * sensJoystick;
             rotVert = Mathf.Clamp(rotVert, -80f, 80f);
-            transfCamara.localRotation = Quaternion.Euler(rotVert, 0f, 0f);
+            transfCamara.localRotation = Quaternion.Euler(rotVert, transfCamara.localRotation.eulerAngles.y, 0f);
 
             transform.Rotate(Vector3.up * entCam.x * sensJoystick);
             return;
         }
 
-        // Modo 3: Control por Giroscopio (Sensor en APK Nativo)
         var girosc = UnityEngine.InputSystem.Gyroscope.current;
         if (girosc != null)
         {
@@ -176,9 +205,79 @@ public class PlayerController : MonoBehaviour
             {
                 rotVert -= deltaGirosc.x * sensGirosc;
                 rotVert = Mathf.Clamp(rotVert, -80f, 80f);
-                transfCamara.localRotation = Quaternion.Euler(rotVert, 0f, 0f);
+                transfCamara.localRotation = Quaternion.Euler(rotVert, transfCamara.localRotation.eulerAngles.y, 0f);
 
                 transform.Rotate(Vector3.up * deltaGirosc.y * sensGirosc);
+            }
+        }
+    }
+
+    // --- LOGICA DEL BAMBOLEO DE CAMARA TIPO DOOM ---
+    private void ProcesarEfectoDoomCamara()
+    {
+        if (!usarEfectoBobbing || transfCamara == null) return;
+
+        if (contrPers.isGrounded && entMov.sqrMagnitude > 0.01f && !estaEnDash)
+        {
+            temporizadorBobbing += Time.deltaTime * frecuenciaBobbing;
+
+            float desplazamientoY = Mathf.Sin(temporizadorBobbing) * amplitudBobbingY;
+            float desplazamientoX = Mathf.Cos(temporizadorBobbing * 0.5f) * amplitudBobbingX;
+
+            Vector3 posObjetivo = posInicialCamara + new Vector3(desplazamientoX, desplazamientoY, 0f);
+            transfCamara.localPosition = Vector3.Lerp(transfCamara.localPosition, posObjetivo, Time.deltaTime * velocidadSuavizado);
+        }
+        else
+        {
+            temporizadorBobbing = 0.0f;
+            transfCamara.localPosition = Vector3.Lerp(transfCamara.localPosition, posInicialCamara, Time.deltaTime * velocidadSuavizado);
+        }
+    }
+
+    // --- REPRODUCCION DE PASOS DE AUDIO ---
+    private void ProcesarSonidoPasos()
+    {
+        if (contrPers.isGrounded && entMov.sqrMagnitude > 0.01f && !estaEnDash)
+        {
+            temporizadorPasos += Time.deltaTime;
+
+            if (temporizadorPasos >= intervaloPasos)
+            {
+                ReproducirPasoAleatorio();
+                temporizadorPasos = 0.0f;
+            }
+        }
+        else
+        {
+            temporizadorPasos = intervaloPasos;
+        }
+    }
+
+    private void ReproducirPasoAleatorio()
+    {
+        if (sonidosPasos == null || sonidosPasos.Length == 0 || fuenteAudioPasos == null) return;
+
+        int indiceAleatorio = Random.Range(0, sonidosPasos.Length);
+        AudioClip clipSeleccionado = sonidosPasos[indiceAleatorio];
+
+        if (clipSeleccionado != null)
+        {
+            fuenteAudioPasos.pitch = Random.Range(0.9f, 1.1f);
+            fuenteAudioPasos.PlayOneShot(clipSeleccionado, volumenPasos);
+        }
+    }
+
+    // --- MECANICA DE LINTERNA (ACTIVACION PÚBLICA / UI ANDROID / TECLA F) ---
+    public void AlternarLinterna()
+    {
+        if (luzLinterna != null)
+        {
+            linternaEncendida = !linternaEncendida;
+            luzLinterna.enabled = linternaEncendida;
+
+            if (fuenteAudioPasos != null && sonidoInterruptorLinterna != null)
+            {
+                fuenteAudioPasos.PlayOneShot(sonidoInterruptorLinterna, 0.7f);
             }
         }
     }

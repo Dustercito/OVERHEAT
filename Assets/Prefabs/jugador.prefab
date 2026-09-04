@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5585242819281165281}
   - component: {fileID: 4592175919799380737}
   - component: {fileID: 8238081067618125347}
+  - component: {fileID: 2436176757681581632}
   m_Layer: 0
   m_Name: PistolaVisual
   m_TagString: Untagged
@@ -110,12 +111,56 @@ MonoBehaviour:
   capasEnemigo:
     serializedVersion: 2
     m_Bits: 256
+  tamanoCargador: 12
+  municionActual: 12
+  municionReserva: 36
+  tiempoRecarga: 1.2
+  spriteSinBalas: {fileID: 0}
+  spriteDisparo1: {fileID: 0}
+  spriteDisparo2: {fileID: 0}
+  spriteDisparo3: {fileID: 0}
+  spriteDisparo4: {fileID: 0}
+  spriteDisparo5: {fileID: 0}
+  duracionFrameDisparo1: 0.03
+  duracionFrameDisparo2: 0.03
+  duracionFrameDisparo3: 0.03
+  duracionFrameDisparo4: 0.03
+  duracionFrameDisparo5: 0.03
+  spriteRecarga1: {fileID: 0}
+  spriteRecarga2: {fileID: 0}
+  spriteRecarga3: {fileID: 0}
+  spriteRecarga4: {fileID: 0}
+  spriteRecarga5: {fileID: 0}
+  duracionFrameRecarga1: 0.2
+  duracionFrameRecarga2: 0.2
+  duracionFrameRecarga3: 0.3
+  duracionFrameRecarga4: 0.3
+  duracionFrameRecarga5: 0.2
   renderizadorSprite: {fileID: 4592175919799380737}
-  spriteReposo: {fileID: 1318925348, guid: df5b6193e7e27f847bfbc7566fab45ac, type: 3}
-  spriteDisparo: {fileID: -122992374, guid: df5b6193e7e27f847bfbc7566fab45ac, type: 3}
   fuenteAudio: {fileID: 0}
   sonidoDisparo: {fileID: 0}
+  sonidoSinBalas: {fileID: 0}
+  sonidoRecarga: {fileID: 0}
   camaraJugador: {fileID: 4436716513595169746}
+--- !u!114 &2436176757681581632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3157409426719887555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b027369f8cacba8c9944342f4a43d827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BamboleoArma
+  contrPers: {fileID: 1019996137549140327}
+  frecuencia: 10
+  amplitudX: 0.02
+  amplitudY: 0.02
+  suavizado: 8
+  inclinacionGiro: 0.05
+  maxInclinacion: 0.1
 --- !u!1 &3443326187529794139
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +196,7 @@ Transform:
   m_Children:
   - {fileID: 5134685875790589077}
   - {fileID: 5585242819281165281}
+  - {fileID: 2115044833686181592}
   m_Father: {fileID: 7636504636090098961}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8641195228028208202
@@ -364,6 +410,7 @@ GameObject:
   - component: {fileID: 5134685875790589077}
   - component: {fileID: 4179929905455711704}
   - component: {fileID: 2490411103047296963}
+  - component: {fileID: 7906688817718807005}
   m_Layer: 0
   m_Name: CuchilloVisual
   m_TagString: Untagged
@@ -469,6 +516,152 @@ MonoBehaviour:
   fuenteAudio: {fileID: 0}
   sonidoAtaque: {fileID: 0}
   camaraJugador: {fileID: 4436716513595169746}
+--- !u!114 &7906688817718807005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4120548603531106797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b027369f8cacba8c9944342f4a43d827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BamboleoArma
+  contrPers: {fileID: 0}
+  frecuencia: 10
+  amplitudX: 0.02
+  amplitudY: 0.02
+  suavizado: 8
+  inclinacionGiro: 0.05
+  maxInclinacion: 0.1
+--- !u!1 &6090601942331238621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2115044833686181592}
+  - component: {fileID: 2220736603640550635}
+  - component: {fileID: 258123146746747422}
+  m_Layer: 0
+  m_Name: LinternaJugador
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2115044833686181592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6090601942331238621}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4436716513595169746}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!108 &2220736603640550635
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6090601942331238621}
+  m_Enabled: 1
+  serializedVersion: 13
+  m_Type: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize2D: {x: 0.5, y: 0.5}
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
+  m_ShapeRadius: 0.025
+  m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
+--- !u!114 &258123146746747422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6090601942331238621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1 &8613936165528836503
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +745,17 @@ MonoBehaviour:
   sensJoystick: 1
   sensGirosc: 1.2
   sensMouse: 0.2
+  usarEfectoBobbing: 1
+  frecuenciaBobbing: 12
+  amplitudBobbingY: 0.05
+  amplitudBobbingX: 0.03
+  velocidadSuavizado: 8
+  fuenteAudioPasos: {fileID: 0}
+  sonidosPasos: []
+  volumenPasos: 0.5
+  intervaloPasos: 0.45
+  luzLinterna: {fileID: 0}
+  sonidoInterruptorLinterna: {fileID: 0}
 --- !u!114 &769848656988516040
 MonoBehaviour:
   m_ObjectHideFlags: 0
