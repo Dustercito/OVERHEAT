@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Audio;
 
 [RequireComponent(typeof(CerebroJefeTutorial))]
 public class TutorialEnemyFSM : MonoBehaviour
@@ -10,25 +9,36 @@ public class TutorialEnemyFSM : MonoBehaviour
     [Header("Estado Actual")]
     [SerializeField] private EstadoEnemigo estadoActual = EstadoEnemigo.PATRULLA;
 
-    [Header("Animación y Audio")]
+    [Header("Animacion y Audio")]
     [SerializeField] private Animator Animador;
     [SerializeField] private AudioSource fuenteAudio;
     [SerializeField] private AudioClip clipAlerta;
     [SerializeField] private AudioClip clipAtaque;
+    [SerializeField] private CarteleraSprite cartelera;
 
     [Header("Visuales")]
     [SerializeField] private SpriteRenderer renderizaSprites;
     [SerializeField] private Transform transformJugador;
 
     private CerebroJefeTutorial cerebro;
+    private SaludEnemigo salud;
+    private Vector3 posicionAnterior;
 
     private void Awake()
     {
         cerebro = GetComponent<CerebroJefeTutorial>();
+        cartelera = GetComponentInChildren<CarteleraSprite>();
+        salud = GetComponent<SaludEnemigo>();
     }
 
     private void Update()
     {
+        // 1. Validar estado de vida
+        if (salud != null && salud.EstaMuerto) return;
+
+        // 2. Enviar parámetros de velocidad al Animator en tiempo real
+        EnviarVelocidadAlAnimador();
+
         switch (estadoActual)
         {
             case EstadoEnemigo.PATRULLA:
@@ -52,7 +62,6 @@ public class TutorialEnemyFSM : MonoBehaviour
     {
         cerebro.MoverEnPatrulla();
 
-        // Ahora solo persigue si el jugador entra en su cono de vision y no hay obstaculos
         if (cerebro.PuedeVerAlJugador())
         {
             VoltearHaciaJugador();
@@ -67,7 +76,6 @@ public class TutorialEnemyFSM : MonoBehaviour
 
     private void ProcesarPersecucion()
     {
-        // 1. Si el jugador se alejó demasiado, vuelve a Patrulla
         if (cerebro.EstaDemasiadoLejos())
         {
             CambiarEstado(EstadoEnemigo.PATRULLA);
@@ -103,7 +111,6 @@ public class TutorialEnemyFSM : MonoBehaviour
 
         yield return new WaitForSeconds(cerebro.DuracionAturdimiento);
 
-
         CambiarEstado(EstadoEnemigo.PERSECUCION);
     }
 
@@ -111,9 +118,30 @@ public class TutorialEnemyFSM : MonoBehaviour
     {
         estadoActual = nuevoEstado;
 
+        // Ajuste de brillo según el estado mediante CarteleraSprite
+        if (cartelera != null)
+        {
+            switch (estadoActual)
+            {
+                case EstadoEnemigo.PATRULLA:
+                    cartelera.CambiarBrillo(1.0f);
+                    break;
+                case EstadoEnemigo.PERSECUCION:
+                    cartelera.CambiarBrillo(1.4f);
+                    break;
+                case EstadoEnemigo.ATAQUE:
+                    cartelera.CambiarBrillo(2.0f);
+                    break;
+                case EstadoEnemigo.RECUPERACION:
+                    cartelera.CambiarBrillo(0.4f);
+                    break;
+            }
+        }
+
         if (Animador != null)
         {
-            Animador.SetBool("Corriendo", estadoActual == EstadoEnemigo.PERSECUCION);
+            bool estaMoviendose = (estadoActual == EstadoEnemigo.PERSECUCION || estadoActual == EstadoEnemigo.PATRULLA);
+            Animador.SetBool("Corriendo", estaMoviendose);
         }
     }
 
@@ -121,15 +149,33 @@ public class TutorialEnemyFSM : MonoBehaviour
     {
         if (transformJugador == null || renderizaSprites == null) return;
 
-        // Si el jugador está a la derecha del monstruo
         if (transformJugador.position.x > transform.position.x)
         {
-            renderizaSprites.flipX = false; // Cambia esto a 'true' si el dibujo original mira a la izquierda
+            renderizaSprites.flipX = false;
         }
-        // Si el jugador está a la izquierda
         else if (transformJugador.position.x < transform.position.x)
         {
-            renderizaSprites.flipX = true; // Cambia esto a 'false' si tu dibujo original mira a la izquierda
+            renderizaSprites.flipX = true;
         }
+    }
+
+    private void EnviarVelocidadAlAnimador()
+    {
+        if (Animador == null) return;
+
+        Vector3 direccionMovimiento = (transform.position - posicionAnterior).normalized;
+
+        if (Mathf.Abs(direccionMovimiento.x) > Mathf.Abs(direccionMovimiento.z))
+        {
+            Animador.SetFloat("VelocidadX", Mathf.Abs(direccionMovimiento.x));
+            Animador.SetFloat("VelocidadY", 0f);
+        }
+        else
+        {
+            Animador.SetFloat("VelocidadX", 0f);
+            Animador.SetFloat("VelocidadY", direccionMovimiento.z);
+        }
+
+        posicionAnterior = transform.position;
     }
 }

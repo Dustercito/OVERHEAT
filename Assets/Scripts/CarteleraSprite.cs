@@ -1,10 +1,13 @@
 using UnityEngine;
-using UnityEngine.Rendering; // Requerido para ShadowCastingMode
+using UnityEngine.Rendering;
 
 public class CarteleraSprite : MonoBehaviour
 {
     private Transform transformCamara;
     private SpriteRenderer renderizadorSprite;
+
+    // Guarda la intensidad actual dictada por el estado de la FSM
+    private float intensidadBrilloActual = 1.0f;
 
     private void Start()
     {
@@ -14,11 +17,12 @@ public class CarteleraSprite : MonoBehaviour
             transformCamara = Camera.main.transform;
         }
 
-        // 2. Activar la construccion y recepcion de sombras en el SpriteRenderer
+        // 2. Activar la construccion a dos caras (TwoSided) y recepcion de sombras
         renderizadorSprite = GetComponent<SpriteRenderer>();
         if (renderizadorSprite != null)
         {
-            renderizadorSprite.shadowCastingMode = ShadowCastingMode.On;
+            // TwoSided permite que proyecte sombra dinámicamente sin importar el ángulo de la luz
+            renderizadorSprite.shadowCastingMode = ShadowCastingMode.TwoSided;
             renderizadorSprite.receiveShadows = true;
         }
     }
@@ -27,24 +31,42 @@ public class CarteleraSprite : MonoBehaviour
     {
         if (transformCamara == null) return;
 
-        // 3. Obtener la direccion frontal de la camara y bloquear la inclinacion en Y
+        // 3. Orientar el sprite hacia la camara bloqueando el eje Y
         Vector3 direccionCamara = transformCamara.forward;
         direccionCamara.y = 0;
 
-        // 4. Orientar el sprite hacia la camara
         if (direccionCamara != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(direccionCamara);
         }
     }
 
-    // --- MODIFICACIÓN: Control de intensidad de brillo en escala de blancos ---
+    // --- METODO FSM: Modifica el tono/brillo base segun el estado actual del enemigo ---
     public void CambiarBrillo(float intensidad)
+    {
+        intensidadBrilloActual = intensidad;
+
+        if (renderizadorSprite != null)
+        {
+            renderizadorSprite.color = new Color(intensidad, intensidad, intensidad, 1f);
+        }
+    }
+
+    // --- METODO SALUD: Aplica temporalmente un tinte de color (ejemplo: Rojo de daño) ---
+    public void AplicarTinteTemp(Color colorTinte)
     {
         if (renderizadorSprite != null)
         {
-            // Mantiene el color original multiplicando el blanco base por la intensidad
-            renderizadorSprite.color = new Color(intensidad, intensidad, intensidad, 1f);
+            renderizadorSprite.color = colorTinte;
+        }
+    }
+
+    // --- METODO SALUD: Restaura el color al brillo que le corresponde segun la FSM ---
+    public void RestaurarColorBrillo()
+    {
+        if (renderizadorSprite != null)
+        {
+            renderizadorSprite.color = new Color(intensidadBrilloActual, intensidadBrilloActual, intensidadBrilloActual, 1f);
         }
     }
 }

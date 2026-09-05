@@ -28,16 +28,20 @@ public class PlayerController : MonoBehaviour
 
     [Header("Efecto Camara Doom (Head Bobbing)")]
     [SerializeField] private bool usarEfectoBobbing = true;
-    [SerializeField] private float frecuenciaBobbing = 12.0f; 
-    [SerializeField] private float amplitudBobbingY = 0.05f;  
-    [SerializeField] private float amplitudBobbingX = 0.03f;  
-    [SerializeField] private float velocidadSuavizado = 8.0f; 
+    [SerializeField] private float frecuenciaBobbing = 12.0f;
+    [SerializeField] private float amplitudBobbingY = 0.05f;
+    [SerializeField] private float amplitudBobbingX = 0.03f;
+    [SerializeField] private float velocidadSuavizado = 8.0f;
+
+    [Header("Efecto Temblor por Poca Vida (Screen Shake)")]
+    [SerializeField] private float intensidadShakePocaVida = 0.08f;
+    private float multiplicadorShakeVida = 0.0f; // Controlado por SaludJugador
 
     [Header("Configuracion de Sonidos de Pasos")]
     [SerializeField] private AudioSource fuenteAudioPasos;
     [SerializeField] private AudioClip[] sonidosPasos;
-    [SerializeField] [Range(0.1f, 1.0f)] private float volumenPasos = 0.5f;
-    [SerializeField] private float intervaloPasos = 0.45f; 
+    [SerializeField][Range(0.1f, 1.0f)] private float volumenPasos = 0.5f;
+    [SerializeField] private float intervaloPasos = 0.45f;
     private float temporizadorPasos = 0.0f;
 
     [Header("Configuracion de Linterna")]
@@ -54,7 +58,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 posInicialCamara;
     private float temporizadorBobbing = 0.0f;
 
-    // --- INICIALIZACION ---
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -74,7 +77,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // Asegurar estado inicial de la linterna
         if (luzLinterna != null)
         {
             luzLinterna.enabled = linternaEncendida;
@@ -86,7 +88,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // --- BUCLE PRINCIPAL DE LOGICA ---
     private void Update()
     {
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -110,8 +111,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Keyboard.current.digit1Key.wasPressedThisFrame && gestorArmas != null) gestorArmas.EquiparArma(1);
             if (Keyboard.current.digit2Key.wasPressedThisFrame && gestorArmas != null) gestorArmas.EquiparArma(2);
-            
-            // Alternar Linterna con la tecla F en PC
+
             if (Keyboard.current.fKey.wasPressedThisFrame)
             {
                 AlternarLinterna();
@@ -155,7 +155,6 @@ public class PlayerController : MonoBehaviour
         ProcesarSonidoPasos();
     }
 
-    // --- LOGICA DE MOVIMIENTO Y GRAVEDAD ---
     private void ProcesarMovimiento()
     {
         if (estaEnDash) return;
@@ -172,7 +171,6 @@ public class PlayerController : MonoBehaviour
         contrPers.Move(velVert * Time.deltaTime);
     }
 
-    // --- LOGICA DE VISTA Y CAMARA (PC / ANDROID) ---
     private void ProcesarVista()
     {
         if (Mouse.current != null && Cursor.lockState == CursorLockMode.Locked)
@@ -212,29 +210,43 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // --- LOGICA DEL BAMBOLEO DE CAMARA TIPO DOOM ---
     private void ProcesarEfectoDoomCamara()
     {
-        if (!usarEfectoBobbing || transfCamara == null) return;
+        if (transfCamara == null) return;
 
-        if (contrPers.isGrounded && entMov.sqrMagnitude > 0.01f && !estaEnDash)
+        Vector3 offsetShake = Vector3.zero;
+
+        // Aplica temblor continuo si el multiplicador de poca vida está activo
+        if (multiplicadorShakeVida > 0.01f)
+        {
+            float shakeX = Random.Range(-1f, 1f) * intensidadShakePocaVida * multiplicadorShakeVida;
+            float shakeY = Random.Range(-1f, 1f) * intensidadShakePocaVida * multiplicadorShakeVida;
+            offsetShake = new Vector3(shakeX, shakeY, 0f);
+        }
+
+        if (usarEfectoBobbing && contrPers.isGrounded && entMov.sqrMagnitude > 0.01f && !estaEnDash)
         {
             temporizadorBobbing += Time.deltaTime * frecuenciaBobbing;
 
             float desplazamientoY = Mathf.Sin(temporizadorBobbing) * amplitudBobbingY;
             float desplazamientoX = Mathf.Cos(temporizadorBobbing * 0.5f) * amplitudBobbingX;
 
-            Vector3 posObjetivo = posInicialCamara + new Vector3(desplazamientoX, desplazamientoY, 0f);
+            Vector3 posObjetivo = posInicialCamara + new Vector3(desplazamientoX, desplazamientoY, 0f) + offsetShake;
             transfCamara.localPosition = Vector3.Lerp(transfCamara.localPosition, posObjetivo, Time.deltaTime * velocidadSuavizado);
         }
         else
         {
             temporizadorBobbing = 0.0f;
-            transfCamara.localPosition = Vector3.Lerp(transfCamara.localPosition, posInicialCamara, Time.deltaTime * velocidadSuavizado);
+            Vector3 posObjetivo = posInicialCamara + offsetShake;
+            transfCamara.localPosition = Vector3.Lerp(transfCamara.localPosition, posObjetivo, Time.deltaTime * velocidadSuavizado);
         }
     }
 
-    // --- REPRODUCCION DE PASOS DE AUDIO ---
+    public void AjustarIntensidadShakeVida(float factor)
+    {
+        multiplicadorShakeVida = Mathf.Clamp01(factor);
+    }
+
     private void ProcesarSonidoPasos()
     {
         if (contrPers.isGrounded && entMov.sqrMagnitude > 0.01f && !estaEnDash)
@@ -267,7 +279,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // --- MECANICA DE LINTERNA (ACTIVACION PÚBLICA / UI ANDROID / TECLA F) ---
     public void AlternarLinterna()
     {
         if (luzLinterna != null)
@@ -282,7 +293,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // --- MECANICA DE ATAQUE (ACTIVACION PÚBLICA / UI ANDROID) ---
     public void EjecutarAtaque()
     {
         if (gestorArmas != null)
@@ -291,7 +301,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // --- MECANICA DE RECARGA (ACTIVACION PÚBLICA / UI ANDROID) ---
     public void EjecutarRecarga()
     {
         if (gestorArmas != null)
@@ -300,7 +309,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // --- MECANICA DE DASH (ACTIVACION PÚBLICA) ---
     public void RealizarDash()
     {
         if (puedeDash && !estaEnDash)
@@ -309,7 +317,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // --- CORRUTINA DE IMPULSO Y RECARGA ---
     private IEnumerator RutinaDash()
     {
         puedeDash = false;

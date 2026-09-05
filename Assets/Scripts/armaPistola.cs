@@ -115,10 +115,13 @@ public class ArmaPistola : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(camaraJugador.position, camaraJugador.forward, out hit, alcanceDisparo, capasEnemigo))
             {
-                CerebroJefeTutorial cerebroEnemigo = hit.collider.GetComponent<CerebroJefeTutorial>();
-                if (cerebroEnemigo != null)
+                // Buscar el script SaludEnemigo en el objeto impactado o en sus padres
+                SaludEnemigo salud = hit.collider.GetComponent<SaludEnemigo>();
+                if (salud == null) salud = hit.collider.GetComponentInParent<SaludEnemigo>();
+
+                if (salud != null)
                 {
-                    Debug.Log("Disparo asestado a: " + hit.collider.name);
+                    salud.RecibirDanio(danio); // Transfiere los puntos de daño al enemigo
                 }
             }
         }

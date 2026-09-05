@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Audio;
 
 [RequireComponent(typeof(CerebroEnemigoBasico))]
 public class enemigoBasicoEstados : MonoBehaviour
@@ -10,7 +9,7 @@ public class enemigoBasicoEstados : MonoBehaviour
     [Header("Estado Actual")]
     [SerializeField] private EstadoEnemigo estadoActual = EstadoEnemigo.PATRULLA;
 
-    [Header("Animación y Audio")]
+    [Header("Animacion y Audio")]
     [SerializeField] private Animator Animador;
     [SerializeField] private AudioSource fuenteAudio;
     [SerializeField] private AudioClip clipAlerta;
@@ -22,18 +21,20 @@ public class enemigoBasicoEstados : MonoBehaviour
     [SerializeField] private Transform transformJugador;
 
     private CerebroEnemigoBasico cerebro;
+    private SaludEnemigo salud;
     private Vector3 posicionAnterior;
 
     private void Awake()
     {
         cerebro = GetComponent<CerebroEnemigoBasico>();
         cartelera = GetComponentInChildren<CarteleraSprite>();
+        salud = GetComponent<SaludEnemigo>();
     }
-    
 
     private void Update()
     {
-        // 1. AHORA SÍ: Esta línea enviará las velocidades al Animator en todo momento
+        if (salud != null && salud.EstaMuerto) return;
+
         EnviarVelocidadAlAnimador();
 
         switch (estadoActual)
@@ -111,26 +112,25 @@ public class enemigoBasicoEstados : MonoBehaviour
         CambiarEstado(EstadoEnemigo.PERSECUCION);
     }
 
-  private void CambiarEstado(EstadoEnemigo nuevoEstado)
+    private void CambiarEstado(EstadoEnemigo nuevoEstado)
     {
         estadoActual = nuevoEstado;
 
-        // Intensidad de brillo por estado
         if (cartelera != null)
         {
             switch (estadoActual)
             {
                 case EstadoEnemigo.PATRULLA:
-                    cartelera.CambiarBrillo(1.0f); // Brillo normal (100%)
+                    cartelera.CambiarBrillo(1.0f);
                     break;
                 case EstadoEnemigo.PERSECUCION:
-                    cartelera.CambiarBrillo(1.4f); // Más brillante (alerta/activo)
+                    cartelera.CambiarBrillo(1.4f);
                     break;
                 case EstadoEnemigo.ATAQUE:
-                    cartelera.CambiarBrillo(2.0f); // Destello máximo de ataque
+                    cartelera.CambiarBrillo(2.0f);
                     break;
                 case EstadoEnemigo.RECUPERACION:
-                    cartelera.CambiarBrillo(0.4f); // Opaco/oscurecido (aturdido)
+                    cartelera.CambiarBrillo(0.4f);
                     break;
             }
         }
@@ -148,36 +148,31 @@ public class enemigoBasicoEstados : MonoBehaviour
 
         if (transformJugador.position.x > transform.position.x)
         {
-            renderizaSprites.flipX = false; 
+            renderizaSprites.flipX = false;
         }
         else if (transformJugador.position.x < transform.position.x)
         {
-            renderizaSprites.flipX = true; 
+            renderizaSprites.flipX = true;
         }
     }
 
-private void EnviarVelocidadAlAnimador()
-{
-    if (Animador == null) return;
-
-    // 1. Calculamos hacia dónde se movió REALMENTE en este fotograma
-    Vector3 direccionMovimiento = (transform.position - posicionAnterior).normalized;
-
-    // 2. Comparamos qué movimiento es más fuerte para no confundir al Animator
-    if (Mathf.Abs(direccionMovimiento.x) > Mathf.Abs(direccionMovimiento.z))
+    private void EnviarVelocidadAlAnimador()
     {
-        // Se mueve más de lado
-        Animador.SetFloat("VelocidadX", Mathf.Abs(direccionMovimiento.x));
-        Animador.SetFloat("VelocidadY", 0f);
-    }
-    else
-    {
-        // Se mueve más hacia el fondo o el frente
-        Animador.SetFloat("VelocidadX", 0f);
-        Animador.SetFloat("VelocidadY", direccionMovimiento.z); // Cambia la 'z' por 'y' si es 2D puro
-    }
+        if (Animador == null) return;
 
-    // 3. Guardamos la posición actual para el siguiente fotograma
-    posicionAnterior = transform.position;
-}
+        Vector3 direccionMovimiento = (transform.position - posicionAnterior).normalized;
+
+        if (Mathf.Abs(direccionMovimiento.x) > Mathf.Abs(direccionMovimiento.z))
+        {
+            Animador.SetFloat("VelocidadX", Mathf.Abs(direccionMovimiento.x));
+            Animador.SetFloat("VelocidadY", 0f);
+        }
+        else
+        {
+            Animador.SetFloat("VelocidadX", 0f);
+            Animador.SetFloat("VelocidadY", direccionMovimiento.z);
+        }
+
+        posicionAnterior = transform.position;
+    }
 }

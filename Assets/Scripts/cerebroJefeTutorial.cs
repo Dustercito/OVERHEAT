@@ -5,21 +5,24 @@ public class CerebroJefeTutorial : MonoBehaviour
 {
     [Header("Referencias")]
     [SerializeField] private Transform posicionJugador;
+    [SerializeField] private MeshRenderer rendererEnemigo;
+    [SerializeField] private SaludEnemigo saludEnemigo;
 
     [Header("Parametros de Deteccion y FOV")]
     [SerializeField] private float distanciaDeteccion = 10.0f;
-    [SerializeField] private float distanciaProximidad = 2.0f; 
-    [SerializeField] private float distanciaPerdida = 15.0f; // <-- PARÁMETRO: Distancia para dejar de buscar
+    [SerializeField] private float distanciaProximidad = 2.0f;
+    [SerializeField] private float distanciaPerdida = 15.0f;
     [SerializeField][Range(0f, 360f)] private float anguloVision = 90.0f;
     [SerializeField] private LayerMask capasObstaculos;
 
-    [Header("Tiempo de Reacción (Delay de Atención)")]
-    [SerializeField] private float tiempoReaccion = 0.5f; // Tiempo en segundos antes de reaccionar
+    [Header("Tiempo de Reaccion (Delay de Atencion)")]
+    [SerializeField] private float tiempoReaccion = 0.5f;
     private float temporizadorReaccion = 0.0f;
 
     [Header("Parametros de Combate e IA")]
     [SerializeField] private float distanciaAtaque = 3.5f;
     [SerializeField] private float velocidadPersecucion = 2.5f;
+    [SerializeField] private float danioAtaque = 20.0f; // <-- PARAMETRO EDITABLE DE DAÑO AL JUGADOR
 
     [Header("Patrullaje")]
     [SerializeField] private Transform[] puntosPatrulla;
@@ -29,11 +32,11 @@ public class CerebroJefeTutorial : MonoBehaviour
     private int indicePuntoActual = 0;
 
     [Header("Comportamiento Variable de Patrulla")]
-    [SerializeField] private float tiempoEsperaMin = 1.0f;   // <-- VARIABLE AÑADIDA
-    [SerializeField] private float tiempoEsperaMax = 3.0f;   // <-- VARIABLE AÑADIDA
+    [SerializeField] private float tiempoEsperaMin = 1.0f;
+    [SerializeField] private float tiempoEsperaMax = 3.0f;
     [SerializeField][Range(0, 100)] private int probabilidadRegresar = 25;
     [SerializeField][Range(0, 100)] private int probabilidadAleatorio = 30;
-    private bool estaEsperandoPunto = false;                 // <-- VARIABLE AÑADIDA
+    private bool estaEsperandoPunto = false;
 
     [Header("Tiempos Tutorial")]
     [SerializeField] private float duracionAlerta = 0.8f;
@@ -45,11 +48,24 @@ public class CerebroJefeTutorial : MonoBehaviour
     public float DistanciaAtaque => distanciaAtaque;
     public float DuracionAlerta => duracionAlerta;
     public float DuracionAturdimiento => duracionAturdimiento;
+    public float DanioAtaque => danioAtaque;
 
-    // Modificación al método PuedeVerAlJugador() para incluir el tiempo de reacción
+    private void Awake()
+    {
+        if (saludEnemigo == null)
+        {
+            saludEnemigo = GetComponent<SaludEnemigo>();
+        }
+    }
+
+    public bool EstaMuerto()
+    {
+        return saludEnemigo != null && saludEnemigo.EstaMuerto;
+    }
+
     public bool PuedeVerAlJugador()
     {
-        if (posicionJugador == null)
+        if (posicionJugador == null || EstaMuerto())
         {
             temporizadorReaccion = 0f;
             return false;
@@ -83,20 +99,18 @@ public class CerebroJefeTutorial : MonoBehaviour
             }
         }
 
-        // LÓGICA DEL TIEMPO DE REACCIÓN:
+        // LOGICA DEL TIEMPO DE REACCION:
         if (jugadorEnVistaOProximidad)
         {
-            // El enemigo te tiene localizado y acumula tiempo de atención
             temporizadorReaccion += Time.deltaTime;
 
             if (temporizadorReaccion >= tiempoReaccion)
             {
-                return true; // Ya reaccionó del todo y ahora persigue
+                return true;
             }
         }
         else
         {
-            // Si pierdes la línea de vista, el temporizador de reacción se reduce progresivamente
             temporizadorReaccion = Mathf.Max(0f, temporizadorReaccion - Time.deltaTime * 2f);
         }
 
@@ -111,7 +125,7 @@ public class CerebroJefeTutorial : MonoBehaviour
 
     public void MoverEnPatrulla()
     {
-        if (puntosPatrulla == null || puntosPatrulla.Length == 0 || estaEsperandoPunto) return;
+        if (puntosPatrulla == null || puntosPatrulla.Length == 0 || estaEsperandoPunto || EstaMuerto()) return;
 
         Transform puntoObjetivo = puntosPatrulla[indicePuntoActual];
         if (puntoObjetivo == null) return;
@@ -163,7 +177,7 @@ public class CerebroJefeTutorial : MonoBehaviour
 
     public void MoverHaciaJugador()
     {
-        if (posicionJugador == null) return;
+        if (posicionJugador == null || EstaMuerto()) return;
 
         Vector3 direccionEnemigo = (posicionJugador.position - transform.position).normalized;
         direccionEnemigo.y = 0;
@@ -175,24 +189,21 @@ public class CerebroJefeTutorial : MonoBehaviour
         transform.position += transform.forward * velocidadPersecucion * Time.deltaTime;
     }
 
-    // Método para verificar si el jugador escapó
     public bool EstaDemasiadoLejos()
     {
         if (posicionJugador == null) return true;
-        
-        // Si la distancia actual supera el límite de pérdida, deja de buscar
+
         float distancia = Vector3.Distance(transform.position, posicionJugador.position);
         return distancia > distanciaPerdida;
     }
 
     public IEnumerator RutinaEmbestidaFisica()
     {
-        if (posicionJugador == null) yield break;
+        if (posicionJugador == null || EstaMuerto()) yield break;
 
-        // 1. Obtener la posición del jugador
         Vector3 posicionObjetivoAtacar = posicionJugador.position;
 
-        // 2. Bloquear la altura Y a la posición actual del enemigo (ej. 0.5)
+        // Bloquear la altura Y a la posicion actual del enemigo para evitar que flote[cite: 5]
         posicionObjetivoAtacar.y = transform.position.y;
 
         float temp = 0f;
@@ -206,6 +217,25 @@ public class CerebroJefeTutorial : MonoBehaviour
             transform.position = Vector3.Lerp(posInicio, posicionObjetivoAtacar, curvaSuave);
             temp += Time.deltaTime;
             yield return null;
+        }
+
+        // Deteccion de impacto de daño al finalizar el movimiento de la embestida[cite: 3]
+        float distanciaAlJugador = ObtenerDistanciaAlJugador();
+        if (distanciaAlJugador <= 1.8f)
+        {
+            SaludJugador saludJugador = posicionJugador.GetComponent<SaludJugador>();
+            if (saludJugador != null)
+            {
+                saludJugador.RecibirDanio(danioAtaque);
+            }
+        }
+    }
+
+    public void CambiarColorVisual(Color nuevoColor)
+    {
+        if (rendererEnemigo != null)
+        {
+            rendererEnemigo.material.color = nuevoColor;
         }
     }
 
