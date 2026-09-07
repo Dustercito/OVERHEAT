@@ -1312,6 +1312,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAlerta
+      value: 
+      objectReference: {fileID: 8300000, guid: a266ce3115b6fbd4d9c6156e56cad1f4, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAtaque
+      value: 
+      objectReference: {fileID: 8300000, guid: 6dfb333b88f12c84fbc7f3c3b5b33520, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: transformJugador
+      value: 
+      objectReference: {fileID: 654222295}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: saludEnemigo
+      value: 
+      objectReference: {fileID: 1758545171}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: posicionJugador
+      value: 
+      objectReference: {fileID: 654222295}
     - target: {fileID: 2703657422246513304, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
       propertyPath: m_Name
       value: enemigoBasico (2)
@@ -1621,6 +1641,17 @@ Transform:
   - {fileID: 453073059}
   m_Father: {fileID: 296243991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &92861338 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5515957378302843702, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+  m_PrefabInstance: {fileID: 572725459}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1439f174021b04d974d5362c2da05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaludEnemigo
 --- !u!1001 &93762283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6678,6 +6709,28 @@ Transform:
   - {fileID: 1626326436}
   m_Father: {fileID: 1419126367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &461860568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5515957378302843702, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+  m_PrefabInstance: {fileID: 2045069466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1439f174021b04d974d5362c2da05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaludEnemigo
+--- !u!114 &468634244 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5515957378302843702, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+  m_PrefabInstance: {fileID: 960222688}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1439f174021b04d974d5362c2da05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaludEnemigo
 --- !u!1001 &469903716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8518,6 +8571,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAlerta
+      value: 
+      objectReference: {fileID: 8300000, guid: a266ce3115b6fbd4d9c6156e56cad1f4, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAtaque
+      value: 
+      objectReference: {fileID: 8300000, guid: 6dfb333b88f12c84fbc7f3c3b5b33520, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: transformJugador
+      value: 
+      objectReference: {fileID: 654222295}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: saludEnemigo
+      value: 
+      objectReference: {fileID: 92861338}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: posicionJugador
+      value: 
+      objectReference: {fileID: 654222295}
     - target: {fileID: 2703657422246513304, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
       propertyPath: m_Name
       value: enemigoBasico (4)
@@ -10840,6 +10913,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0533f5a956f8ede42807ed1660ffa45c, type: 3}
+--- !u!114 &738269856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5515957378302843702, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+  m_PrefabInstance: {fileID: 1393940493}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1439f174021b04d974d5362c2da05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaludEnemigo
 --- !u!1001 &743102386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13554,6 +13638,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 149784205779141664, guid: cdc7867a82c0b85ffb803a8f1ff7b98d, type: 3}
   m_PrefabInstance: {fileID: 947602582}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &951895304 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5515957378302843702, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+  m_PrefabInstance: {fileID: 1673421735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1439f174021b04d974d5362c2da05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaludEnemigo
 --- !u!1001 &955072424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13718,6 +13813,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAlerta
+      value: 
+      objectReference: {fileID: 8300000, guid: a266ce3115b6fbd4d9c6156e56cad1f4, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAtaque
+      value: 
+      objectReference: {fileID: 8300000, guid: 6dfb333b88f12c84fbc7f3c3b5b33520, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: transformJugador
+      value: 
+      objectReference: {fileID: 654222295}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: saludEnemigo
+      value: 
+      objectReference: {fileID: 468634244}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: posicionJugador
+      value: 
+      objectReference: {fileID: 654222295}
     - target: {fileID: 2703657422246513304, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
       propertyPath: m_Name
       value: enemigoBasico (5)
@@ -15804,6 +15919,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAlerta
+      value: 
+      objectReference: {fileID: 8300000, guid: a266ce3115b6fbd4d9c6156e56cad1f4, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAtaque
+      value: 
+      objectReference: {fileID: 8300000, guid: 6dfb333b88f12c84fbc7f3c3b5b33520, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: transformJugador
+      value: 
+      objectReference: {fileID: 654222295}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: saludEnemigo
+      value: 
+      objectReference: {fileID: 1271696176}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: posicionJugador
+      value: 
+      objectReference: {fileID: 654222295}
     - target: {fileID: 2703657422246513304, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
       propertyPath: m_Name
       value: enemigoBasico (7)
@@ -18561,6 +18696,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 195ee2f7928c21640bc13e6fe674985a, type: 3}
+--- !u!114 &1271696176 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5515957378302843702, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+  m_PrefabInstance: {fileID: 1079212500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1439f174021b04d974d5362c2da05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaludEnemigo
 --- !u!1001 &1274855567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20127,6 +20273,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAlerta
+      value: 
+      objectReference: {fileID: 8300000, guid: a266ce3115b6fbd4d9c6156e56cad1f4, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAtaque
+      value: 
+      objectReference: {fileID: 8300000, guid: 6dfb333b88f12c84fbc7f3c3b5b33520, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: transformJugador
+      value: 
+      objectReference: {fileID: 654222295}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: saludEnemigo
+      value: 
+      objectReference: {fileID: 738269856}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: posicionJugador
+      value: 
+      objectReference: {fileID: 654222295}
     - target: {fileID: 2703657422246513304, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
       propertyPath: m_Name
       value: enemigoBasico (6)
@@ -23056,6 +23222,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAlerta
+      value: 
+      objectReference: {fileID: 8300000, guid: a266ce3115b6fbd4d9c6156e56cad1f4, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAtaque
+      value: 
+      objectReference: {fileID: 8300000, guid: 6dfb333b88f12c84fbc7f3c3b5b33520, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: transformJugador
+      value: 
+      objectReference: {fileID: 654222295}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: saludEnemigo
+      value: 
+      objectReference: {fileID: 951895304}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: posicionJugador
+      value: 
+      objectReference: {fileID: 654222295}
     - target: {fileID: 2703657422246513304, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
       propertyPath: m_Name
       value: enemigoBasico (1)
@@ -24341,6 +24527,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2d0b76790c5ce24c97dc90eeacbb3e6, type: 3}
+--- !u!114 &1758545171 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5515957378302843702, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+  m_PrefabInstance: {fileID: 72167963}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1439f174021b04d974d5362c2da05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaludEnemigo
 --- !u!4 &1761913148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 26df42f467806704ca33e4f1f2aeb3bd, type: 3}
@@ -33146,6 +33343,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAlerta
+      value: 
+      objectReference: {fileID: 8300000, guid: a266ce3115b6fbd4d9c6156e56cad1f4, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: clipAtaque
+      value: 
+      objectReference: {fileID: 8300000, guid: 6dfb333b88f12c84fbc7f3c3b5b33520, type: 3}
+    - target: {fileID: 88414402516630440, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: transformJugador
+      value: 
+      objectReference: {fileID: 654222295}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: saludEnemigo
+      value: 
+      objectReference: {fileID: 461860568}
+    - target: {fileID: 344651548472088468, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
+      propertyPath: posicionJugador
+      value: 
+      objectReference: {fileID: 654222295}
     - target: {fileID: 2703657422246513304, guid: ae809f073aa7b855387e0eb2e6237610, type: 3}
       propertyPath: m_Name
       value: enemigoBasico (3)
