@@ -90,12 +90,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // --- TECLADO Y NAVEGACIÓN ---
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
 
+        // En dispositivos móviles o táctiles, desactiva el bloqueo de cursor o ajústalo
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame && Cursor.lockState == CursorLockMode.None)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -116,21 +118,30 @@ public class PlayerController : MonoBehaviour
             {
                 AlternarLinterna();
             }
+
+            if (Keyboard.current.rKey.wasPressedThisFrame)
+            {
+                EjecutarRecarga();
+            }
+
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                RealizarDash();
+            }
         }
 
-        if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
-        {
-            EjecutarRecarga();
-        }
-
+        // --- LECTURA DE MOVIMIENTO (JOYSTICK UI / GAMEPAD / TECLADO) ---
         entMov = Vector2.zero;
+        entCam = Vector2.zero;
 
+        // 1. Leer Gamepad/Joystick UI
         if (Gamepad.current != null)
         {
             entMov = Gamepad.current.leftStick.ReadValue();
             entCam = Gamepad.current.rightStick.ReadValue();
         }
 
+        // 2. Si no se usa joystick/gamepad, leer Teclado WASD
         if (entMov.sqrMagnitude < 0.01f && Keyboard.current != null)
         {
             float x = 0f;
@@ -142,11 +153,6 @@ public class PlayerController : MonoBehaviour
             if (Keyboard.current.dKey.isPressed) x += 1f;
 
             entMov = new Vector2(x, y).normalized;
-        }
-
-        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            RealizarDash();
         }
 
         ProcesarMovimiento();
@@ -171,42 +177,44 @@ public class PlayerController : MonoBehaviour
         contrPers.Move(velVert * Time.deltaTime);
     }
 
-    private void ProcesarVista()
+        private void ProcesarVista()
     {
+        Vector2 entradaVista = Vector2.zero;
+
+        // 1. Leer movimiento del Mouse si el cursor está bloqueado
         if (Mouse.current != null && Cursor.lockState == CursorLockMode.Locked)
         {
-            Vector2 deltaMouse = Mouse.current.delta.ReadValue();
-
-            rotVert -= deltaMouse.y * sensMouse;
-            rotVert = Mathf.Clamp(rotVert, -80f, 80f);
-            transfCamara.localRotation = Quaternion.Euler(rotVert, transfCamara.localRotation.eulerAngles.y, 0f);
-
-            transform.Rotate(Vector3.up * deltaMouse.x * sensMouse);
-            return;
+            entradaVista += Mouse.current.delta.ReadValue() * sensMouse;
         }
 
+        // 2. Sumar el movimiento del Joystick Derecho (JoystickCam)
         if (entCam.sqrMagnitude > 0.01f)
         {
-            rotVert -= entCam.y * sensJoystick;
-            rotVert = Mathf.Clamp(rotVert, -80f, 80f);
-            transfCamara.localRotation = Quaternion.Euler(rotVert, transfCamara.localRotation.eulerAngles.y, 0f);
-
-            transform.Rotate(Vector3.up * entCam.x * sensJoystick);
-            return;
+            entradaVista += entCam * (sensJoystick * 10f); // Multiplicado por un factor para igualar la velocidad
         }
 
+        // 3. Sumar el giroscopio si está disponible
         var girosc = UnityEngine.InputSystem.Gyroscope.current;
         if (girosc != null)
         {
             Vector3 deltaGirosc = girosc.angularVelocity.ReadValue();
             if (deltaGirosc.sqrMagnitude > 0.001f)
             {
-                rotVert -= deltaGirosc.x * sensGirosc;
-                rotVert = Mathf.Clamp(rotVert, -80f, 80f);
-                transfCamara.localRotation = Quaternion.Euler(rotVert, transfCamara.localRotation.eulerAngles.y, 0f);
-
-                transform.Rotate(Vector3.up * deltaGirosc.y * sensGirosc);
+                entradaVista.x += deltaGirosc.y * sensGirosc;
+                entradaVista.y += deltaGirosc.x * sensGirosc;
             }
+        }
+
+        // 4. Aplicar la rotación final si hay entrada
+        if (entradaVista.sqrMagnitude > 0.001f)
+        {
+            // Rotación vertical (Cámara)
+            rotVert -= entradaVista.y;
+            rotVert = Mathf.Clamp(rotVert, -80f, 80f);
+            transfCamara.localRotation = Quaternion.Euler(rotVert, transfCamara.localRotation.eulerAngles.y, 0f);
+
+            // Rotación horizontal (Jugador)
+            transform.Rotate(Vector3.up * entradaVista.x);
         }
     }
 
