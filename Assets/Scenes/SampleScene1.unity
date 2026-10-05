@@ -1666,7 +1666,7 @@ PrefabInstance:
     - target: {fileID: 3595853868620623104, guid: 224e50430f62e2241805800e8ba0228f, type: 3}
       propertyPath: rendererEnemigo
       value: 
-      objectReference: {fileID: 2782046809676216969}
+      objectReference: {fileID: 0}
     - target: {fileID: 3595853868620623104, guid: 224e50430f62e2241805800e8ba0228f, type: 3}
       propertyPath: velocidadPatrulla
       value: 3
@@ -1755,11 +1755,6 @@ PrefabInstance:
       addedObject: {fileID: 1128035861}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 224e50430f62e2241805800e8ba0228f, type: 3}
---- !u!23 &2782046809676216969 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 1789870225694838057, guid: 224e50430f62e2241805800e8ba0228f, type: 3}
-  m_PrefabInstance: {fileID: 2782046809676216968}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2782046809676216974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7208617838357022600, guid: 224e50430f62e2241805800e8ba0228f, type: 3}
