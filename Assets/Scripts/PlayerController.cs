@@ -60,6 +60,13 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        // --- APLICAR SENSIBILIDAD DEL MENÚ ---
+        float multiplicadorSens = PlayerPrefs.GetFloat("Sensibilidad", 1f);
+        sensMouse *= multiplicadorSens;
+        sensJoystick *= multiplicadorSens;
+        sensGirosc *= multiplicadorSens;
+        // -------------------------------------
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 

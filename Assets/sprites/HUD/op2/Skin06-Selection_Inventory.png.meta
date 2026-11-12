@@ -108,12 +108,188 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Skin06-Selection_Inventory_0
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 240
+        width: 286
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac542d073d1ce6a44948add683543499
+      internalID: 354915597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skin06-Selection_Inventory_1
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 288
+        width: 286
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af59b82c0056d0044a572390fcafe6e0
+      internalID: 1925159705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skin06-Selection_Inventory_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 192
+        width: 286
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfbfd4da5774b3542b61a4a456ba8504
+      internalID: -1235341997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skin06-Selection_Inventory_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 144
+        width: 286
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d09376f53553fb4394dde3f00ecc2ba
+      internalID: 36734806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skin06-Selection_Inventory_4
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 96
+        width: 286
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a879d4a34039114429c722ee2398ce61
+      internalID: 411635998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skin06-Selection_Inventory_5
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 280
+        width: 449
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a40bf52b79d38479eb37a3173801e2
+      internalID: -1515953864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skin06-Selection_Inventory_6
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 88
+        width: 446
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a5e0f2491de0964d90245e4d67ef981
+      internalID: 240025609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skin06-Selection_Inventory_7
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 434
+        width: 301
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 472364d603ff0c94ca56606b80d17b2b
+      internalID: -1695702720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ceeb40d3c2dc19848ba3e8f942841835
     internalID: 0
     vertices: []
     indices: 
@@ -121,8 +297,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Skin06-Selection_Inventory_0: 354915597
+      Skin06-Selection_Inventory_1: 1925159705
+      Skin06-Selection_Inventory_2: -1235341997
+      Skin06-Selection_Inventory_3: 36734806
+      Skin06-Selection_Inventory_4: 411635998
+      Skin06-Selection_Inventory_5: -1515953864
+      Skin06-Selection_Inventory_6: 240025609
+      Skin06-Selection_Inventory_7: -1695702720
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
