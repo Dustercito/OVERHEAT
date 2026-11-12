@@ -97,12 +97,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // --- EVITAR ACCIONES SI EL JUEGO ESTÁ PAUSADO ---
+        if (PauseManager.juegoPausado) return;
+
         // --- TECLADO Y NAVEGACIÓN ---
-        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
 
         // En dispositivos móviles o táctiles, desactiva el bloqueo de cursor o ajústalo
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame && Cursor.lockState == CursorLockMode.None)
@@ -184,7 +182,7 @@ public class PlayerController : MonoBehaviour
         contrPers.Move(velVert * Time.deltaTime);
     }
 
-        private void ProcesarVista()
+    private void ProcesarVista()
     {
         Vector2 entradaVista = Vector2.zero;
 

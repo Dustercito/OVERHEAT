@@ -111,4 +111,12 @@ public class MenuManager : MonoBehaviour
             fuenteAudioUI.PlayOneShot(clipBotonClic);
         }
     }
+
+    public void ContinuarJuego()
+    {
+        ReproducirSonidoBoton();
+        // Lee el índice de la escena guardada (si no hay, carga la escena 1 por defecto)
+        int escenaAGuardar = PlayerPrefs.GetInt("EscenaGuardada", 1);
+        SceneManager.LoadScene(escenaAGuardar);
+    }
 }
