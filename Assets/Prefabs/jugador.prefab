@@ -106,11 +106,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArmaPistola
   danio: 30
-  alcanceDisparo: 25
+  alcanceDisparo: 10
   recargaDisparo: 0.19
   capasEnemigo:
     serializedVersion: 2
     m_Bits: 256
+  radioDisparo: 0.8
   tamanoCargador: 7
   municionActual: 7
   municionReserva: 80
@@ -138,7 +139,7 @@ MonoBehaviour:
   duracionFrameRecarga5: 0.2
   renderizadorSprite: {fileID: 4592175919799380737}
   fuenteAudio: {fileID: 4016228726567387899}
-  sonidoDisparo: {fileID: 8300000, guid: 783e9e6cb2577b402b7a8cda242b69cd, type: 3}
+  sonidoDisparo: {fileID: 8300000, guid: 9123bef9215410c4393b4eee3aa24710, type: 3}
   sonidoSinBalas: {fileID: 8300000, guid: 8afb3026bd21fff45a9ad86fd3679013, type: 3}
   sonidoRecarga: {fileID: 8300000, guid: 0c64d10f774bfc9438b7987314fd1934, type: 3}
   camaraJugador: {fileID: 4436716513595169746}
@@ -173,6 +174,8 @@ GameObject:
   - component: {fileID: 8641195228028208202}
   - component: {fileID: 5747069645893209797}
   - component: {fileID: 7831468237222179157}
+  - component: {fileID: 6032331808162445055}
+  - component: {fileID: 7436260655996196705}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -230,7 +233,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 50
+  far clip plane: 80
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -301,6 +304,51 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &6032331808162445055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3443326187529794139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433faa8b758afed4f9295b193c697276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PSXShaderKit.PSXPostProcessEffect
+  _PixelationFactor: 1
+  _ColorEmulationMode: 3
+  _FullscreenColorDepth: {x: 256, y: 256, z: 256}
+  _FullscreenDitherDepth: {x: 32, y: 32, z: 32}
+  _DitheringMatrixSize: 2
+  _DitheringScale: 1
+  _InterlacingSize: 1
+  _PostProcessShader: {fileID: 4800000, guid: 56d52fd5b7c6911468179e5a7359ce0e, type: 3}
+  _PostProcessShaderAccurate: {fileID: 4800000, guid: 2ebed186567d3c244a87538744a62920, type: 3}
+  _PixelationShader: {fileID: 4800000, guid: f2da0e2a14a532548b5db043244b3df1, type: 3}
+  _InterlacingShader: {fileID: 4800000, guid: 03ebd34214b41ef459d7ee6753b062be, type: 3}
+--- !u!114 &7436260655996196705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3443326187529794139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a4c69f7a9d3ea43907b5765229dc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PSXShaderKit.PSXShaderManager
+  _TextureWarpingFactor: 1
+  _TextureWarpingMode: 0
+  _VertexGridResolution: 80
+  _VertexWobbleMode: 0
+  _UseRetroVertexLighting: 1
+  _RetroLightingNormalFactor: 0
+  _RetroLightFalloffStart: 0
+  _FlatShadingMode: 0
+  _TriangleSortMode: 0
+  _DepthDebugView: 0
 --- !u!1 &4120548603531106797
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,12 +454,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4787f4293594dd52bacdc63714f864c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArmaCuchillo
-  danio: 25
-  alcanceAtaque: 2
+  danio: 35
+  alcanceAtaque: 4
   recargaAtaque: 0.6
   capasEnemigo:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
+  radioAtaque: 1
   renderizadorSprite: {fileID: 4179929905455711704}
   spriteReposo: {fileID: 1604115025, guid: c4383f161acf1c04c8361eeed1ebf170, type: 3}
   spriteAtaque: {fileID: 1222330751, guid: c4383f161acf1c04c8361eeed1ebf170, type: 3}
@@ -899,7 +948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   contrPers: {fileID: 1019996137549140327}
-  velMov: 4
+  velMov: 5
   gravedad: -9.81
   velDash: 14
   durDash: 0.2
@@ -938,6 +987,7 @@ MonoBehaviour:
   armaPistola: {fileID: 8238081067618125347}
   tieneCuchillo: 1
   tienePistola: 1
+  tieneEscopeta: 0
 --- !u!114 &4131757087848874885
 MonoBehaviour:
   m_ObjectHideFlags: 0

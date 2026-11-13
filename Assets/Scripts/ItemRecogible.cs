@@ -1,14 +1,16 @@
 using UnityEngine;
 
-public class RecolectableArma : MonoBehaviour
+public class ItemRecogible : MonoBehaviour
 {
-    public enum TipoArma { Cuchillo, Pistola, Escopeta }
+    public enum TipoItem { Cuchillo, Pistola, Escopeta, MunicionPistola }
 
-    [Header("Configuracion de Recogida")]
-    [SerializeField] private TipoArma armaAEntregar;
+    [Header("Configuracion del Recogible")]
+    [SerializeField] private TipoItem tipoDeItem;
+    [Tooltip("Solo aplica si el tipo es MunicionPistola")]
+    [SerializeField] private int cantidadMunicion = 12;
     [SerializeField] private AudioClip sonidoRecogida;
 
-    [Header("Efecto Visual (Flotacion 2D en 3D)")]
+    [Header("Efecto Visual (Flotacion)")]
     [SerializeField] private float velRotacion = 50.0f;
     [SerializeField] private float velFlotacion = 2.0f;
     [SerializeField] private float altFlotacion = 0.1f;
@@ -22,31 +24,28 @@ public class RecolectableArma : MonoBehaviour
 
     private void Update()
     {
-        // Giro horizontal constante del Sprite/Objeto
+        // Giro y flotación para que llame la atención en el mapa
         transform.Rotate(Vector3.up * velRotacion * Time.deltaTime, Space.World);
-
-        // Movimiento suave arriba y abajo (Efecto flotante clasico)
         float nuevoY = posInicial.y + Mathf.Sin(Time.time * velFlotacion) * altFlotacion;
         transform.position = new Vector3(transform.position.x, nuevoY, transform.position.z);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Detectar si el Jugador entra al Trigger
+        // Detectar si lo tocó el jugador
         GestorArmas gestor = other.GetComponent<GestorArmas>();
         if (gestor != null)
         {
-            // Entregar el arma correspondiente
-            gestor.DesbloquearArma(armaAEntregar);
+            bool recogidoExitosamente = gestor.RecogerItem(tipoDeItem, cantidadMunicion);
 
-            // Sonido de recogida (opcional)
-            if (sonidoRecogida != null)
+            if (recogidoExitosamente)
             {
-                AudioSource.PlayClipAtPoint(sonidoRecogida, transform.position);
+                if (sonidoRecogida != null)
+                {
+                    AudioSource.PlayClipAtPoint(sonidoRecogida, transform.position);
+                }
+                Destroy(gameObject);
             }
-
-            // Eliminar el recogible del escenario
-            Destroy(gameObject);
         }
     }
 }

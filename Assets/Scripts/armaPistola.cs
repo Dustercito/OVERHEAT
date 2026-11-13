@@ -10,6 +10,11 @@ public class ArmaPistola : MonoBehaviour
     [SerializeField] private float recargaDisparo = 0.5f; // Cooldown total entre disparos
     [SerializeField] private LayerMask capasEnemigo;
 
+    // --- NUEVA VARIABLE PARA EL ÁREA DEL DISPARO ---
+    [Header("Asistencia de Apuntado (Movil)")]
+    [Tooltip("El grosor de la bala. Valores más grandes hacen que sea más fácil darle al enemigo sin apuntar perfecto.")]
+    [SerializeField] private float radioDisparo = 0.5f; // Ajusta este valor en Unity (0.5f es medio metro de margen)
+
     [Header("Configuracion de Municion y Recarga")]
     [SerializeField] private int tamanoCargador = 12;
     [SerializeField] private int municionActual = 12;
@@ -106,22 +111,23 @@ public class ArmaPistola : MonoBehaviour
         // Audio
         if (fuenteAudio != null && sonidoDisparo != null)
         {
-            fuenteAudio.PlayOneShot(sonidoDisparo);
+            fuenteAudio.PlayOneShot(sonidoDisparo, 2.0f);
         }
 
         // Raycast de disparo al centro de la pantalla
         if (camaraJugador != null)
         {
             RaycastHit hit;
-            if (Physics.Raycast(camaraJugador.position, camaraJugador.forward, out hit, alcanceDisparo, capasEnemigo))
+            // CAMBIO CLAVE AQUI: Reemplazamos Physics.Raycast por Physics.SphereCast
+            // Lanzamos una "esfera" hacia el frente para detectar impactos más fácilmente
+            if (Physics.SphereCast(camaraJugador.position, radioDisparo, camaraJugador.forward, out hit, alcanceDisparo, capasEnemigo))
             {
-                // Buscar el script SaludEnemigo en el objeto impactado o en sus padres
                 SaludEnemigo salud = hit.collider.GetComponent<SaludEnemigo>();
                 if (salud == null) salud = hit.collider.GetComponentInParent<SaludEnemigo>();
 
                 if (salud != null)
                 {
-                    salud.RecibirDanio(danio); // Transfiere los puntos de daño al enemigo
+                    salud.RecibirDanio(danio);
                 }
             }
         }

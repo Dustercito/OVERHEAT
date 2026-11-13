@@ -112,10 +112,34 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    // --- NAVEGACIÓN Y CARGA DE ESCENAS ---
+
+    // Función para el botón "NUEVO JUEGO"
+    public void NuevoJuego()
+    {
+        ReproducirSonidoBoton();
+
+        // 1. Borramos SOLO el progreso para empezar de cero (mantiene Volumen y Sensibilidad)
+        PlayerPrefs.DeleteKey("VidaJugador");
+        PlayerPrefs.DeleteKey("EscenaGuardada");
+        PlayerPrefs.DeleteKey("TieneCuchillo");
+        PlayerPrefs.DeleteKey("TienePistola");
+        PlayerPrefs.DeleteKey("JugadorPosX");
+        PlayerPrefs.DeleteKey("JugadorPosY");
+        PlayerPrefs.DeleteKey("JugadorPosZ");
+
+        PlayerPrefs.Save();
+
+        // 2. Cargamos el Nivel 1 (Usa la variable nombreEscenaJuego del Inspector)
+        SceneManager.LoadScene(nombreEscenaJuego);
+    }
+
+    // Función para el botón "CONTINUAR"
     public void ContinuarJuego()
     {
         ReproducirSonidoBoton();
-        // Lee el índice de la escena guardada (si no hay, carga la escena 1 por defecto)
+
+        // Lee el índice de la escena guardada (si no hay, carga el índice 1 por defecto)
         int escenaAGuardar = PlayerPrefs.GetInt("EscenaGuardada", 1);
         SceneManager.LoadScene(escenaAGuardar);
     }
