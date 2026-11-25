@@ -884,6 +884,7 @@ GameObject:
   - component: {fileID: 118836190074270570}
   - component: {fileID: 769848656988516040}
   - component: {fileID: 4131757087848874885}
+  - component: {fileID: 9186159231946789355}
   m_Layer: 0
   m_Name: jugador
   m_TagString: Untagged
@@ -1009,6 +1010,32 @@ MonoBehaviour:
   clipDanio: {fileID: 8300000, guid: 47d72f1d862d007429f725b7346395f8, type: 3}
   clipMuerte: {fileID: 8300000, guid: d7aed2ec0f1dbc547a7eb9c745fee6e1, type: 3}
   tiempoInvulnerable: 0.8
+  objetoVideoPlayer: {fileID: 0}
+  duracionCinematica: 2.5
+  hudJugador: {fileID: 0}
+  panelGameOver: {fileID: 0}
+  nombreMenuPrincipal: MainMenu
+--- !u!114 &9186159231946789355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613936165528836503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924b76961e6e539498191f2cb067810c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GestorRadiacion
+  saludJugador: {fileID: 4131757087848874885}
+  imagenDestelloRadiacion: {fileID: 0}
+  cartelRadiacion: {fileID: 0}
+  fuenteAudioRadiacion: {fileID: 0}
+  clipRadiacion: {fileID: 8300000, guid: 17e48a947aa8d9b49bf7a48e49f10f31, type: 3}
+  danioPorSegundo: 15
+  intervaloTick: 0.25
+  opacidadMaximaDestello: 0.35
+  velocidadTransicionVisual: 6
 --- !u!1 &8867925726602150025
 GameObject:
   m_ObjectHideFlags: 0

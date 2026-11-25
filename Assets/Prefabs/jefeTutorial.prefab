@@ -363,7 +363,11 @@ MonoBehaviour:
   distanciaAtaque: 3.5
   velocidadPersecucion: 2.5
   danioAtaque: 40
-  puntosPatrulla: []
+  puntosPatrulla:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   velocidadPatrulla: 3
   distanciaCambioPunto: 0.5
   velocidadRotacion: 5

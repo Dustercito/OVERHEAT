@@ -1,6 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // Necesario para controlar los Sliders
+using UnityEngine.Video;
 
 public class MenuManager : MonoBehaviour
 {
@@ -8,13 +9,14 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject panelMenuPrincipal;
     [SerializeField] private GameObject panelOpciones;
 
-    [Header("Controles de Opciones")]
-    [SerializeField] private Slider sliderVolumen;
-    [SerializeField] private Slider sliderSensibilidad;
+    [Header("Cinemática de Contexto (Solo Nuevo Juego)")]
+    [SerializeField] private GameObject contenedorVideoIntro;
+    [SerializeField] private VideoPlayer reproductorVideoIntro;
+    [SerializeField] private float duracionVideoIntro = 10.0f; // Ajusta a los segundos exactos de tu video
 
     [Header("Configuración de Carga")]
-    [Tooltip("Nombre exacto de la escena de juego")]
-    [SerializeField] private string nombreEscenaJuego = "SampleScene";
+    [Tooltip("Nombre exacto de la escena del Nivel 1")]
+    [SerializeField] private string nombreEscenaJuego = "Level_1";
 
     [Header("Audio de Fondo (Música)")]
     [SerializeField] private AudioSource fuenteAudioMusicaFondo;
@@ -26,45 +28,19 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+        if (contenedorVideoIntro != null)
+        {
+            contenedorVideoIntro.SetActive(false);
+        }
+
         IniciarMusicaFondo();
-        CargarAjustesGuardados(); // Cargar volumen y sensibilidad al abrir el juego
         MostrarMenuPrincipal();
     }
 
-    // --- SISTEMA DE OPCIONES ---
-    private void CargarAjustesGuardados()
-    {
-        // Carga el volumen guardado (1 por defecto si es la primera vez)
-        if (sliderVolumen != null)
-        {
-            sliderVolumen.value = PlayerPrefs.GetFloat("VolumenGlobal", 1f);
-            ActualizarVolumen(sliderVolumen.value);
-        }
-
-        // Carga la sensibilidad guardada (1 por defecto)
-        if (sliderSensibilidad != null)
-        {
-            sliderSensibilidad.value = PlayerPrefs.GetFloat("Sensibilidad", 1f);
-        }
-    }
-
-    public void ActualizarVolumen(float valor)
-    {
-        // AudioListener.volume controla el volumen maestro de todo Unity
-        AudioListener.volume = valor;
-        PlayerPrefs.SetFloat("VolumenGlobal", valor);
-    }
-
-    public void ActualizarSensibilidad(float valor)
-    {
-        // Solo lo guardamos, el PlayerController lo leerá al cargar la partida
-        PlayerPrefs.SetFloat("Sensibilidad", valor);
-    }
-
-    // --- MÚSICA Y NAVEGACIÓN ---
     private void IniciarMusicaFondo()
     {
         if (fuenteAudioMusicaFondo != null && clipMusicaFondo != null)
@@ -76,13 +52,61 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void CargarJuego()
+    // --- BOTÓN: NUEVO JUEGO (Con Video de Contexto) ---
+    public void NuevoJuego()
     {
         ReproducirSonidoBoton();
-        PlayerPrefs.Save(); // Asegura guardar las opciones antes de jugar
+
+        // 1. Limpiar progreso anterior manteniendo Volumen y Sensibilidad
+        PlayerPrefs.DeleteKey("VidaJugador");
+        PlayerPrefs.DeleteKey("EscenaGuardada");
+        PlayerPrefs.DeleteKey("TieneCuchillo");
+        PlayerPrefs.DeleteKey("TienePistola");
+        PlayerPrefs.DeleteKey("JugadorPosX");
+        PlayerPrefs.DeleteKey("JugadorPosY");
+        PlayerPrefs.DeleteKey("JugadorPosZ");
+        PlayerPrefs.Save();
+
+        // 2. Iniciar rutina del video antes de cargar el Nivel 1
+        StartCoroutine(ReproducirIntroYCargar());
+    }
+
+    private IEnumerator ReproducirIntroYCargar()
+    {
+        // Apagar música del menú para que no se encime con el audio del video
+        if (fuenteAudioMusicaFondo != null)
+        {
+            fuenteAudioMusicaFondo.Stop();
+        }
+
+        // Ocultar paneles del menú y mostrar pantalla negra + video
+        if (panelMenuPrincipal != null) panelMenuPrincipal.SetActive(false);
+        if (panelOpciones != null) panelOpciones.SetActive(false);
+
+        if (contenedorVideoIntro != null && reproductorVideoIntro != null)
+        {
+            contenedorVideoIntro.SetActive(true);
+            reproductorVideoIntro.frame = 0;
+            reproductorVideoIntro.Play();
+
+            // Esperar la duración exacta del video
+            yield return new WaitForSeconds(duracionVideoIntro);
+        }
+
+        // Cargar el Nivel 1 desde cero
         SceneManager.LoadScene(nombreEscenaJuego);
     }
 
+    // --- BOTÓN: CONTINUAR JUEGO (Directo a la partida, sin video) ---
+    public void ContinuarJuego()
+    {
+        ReproducirSonidoBoton();
+
+        int escenaGuardada = PlayerPrefs.GetInt("EscenaGuardada", 1);
+        SceneManager.LoadScene(escenaGuardada);
+    }
+
+    // --- NAVEGACIÓN DE PANELES ---
     public void MostrarMenuPrincipal()
     {
         ReproducirSonidoBoton();
@@ -100,7 +124,7 @@ public class MenuManager : MonoBehaviour
     public void SalirDelJuego()
     {
         ReproducirSonidoBoton();
-        PlayerPrefs.Save();
+        Debug.Log("Saliendo del juego...");
         Application.Quit();
     }
 
@@ -110,37 +134,5 @@ public class MenuManager : MonoBehaviour
         {
             fuenteAudioUI.PlayOneShot(clipBotonClic);
         }
-    }
-
-    // --- NAVEGACIÓN Y CARGA DE ESCENAS ---
-
-    // Función para el botón "NUEVO JUEGO"
-    public void NuevoJuego()
-    {
-        ReproducirSonidoBoton();
-
-        // 1. Borramos SOLO el progreso para empezar de cero (mantiene Volumen y Sensibilidad)
-        PlayerPrefs.DeleteKey("VidaJugador");
-        PlayerPrefs.DeleteKey("EscenaGuardada");
-        PlayerPrefs.DeleteKey("TieneCuchillo");
-        PlayerPrefs.DeleteKey("TienePistola");
-        PlayerPrefs.DeleteKey("JugadorPosX");
-        PlayerPrefs.DeleteKey("JugadorPosY");
-        PlayerPrefs.DeleteKey("JugadorPosZ");
-
-        PlayerPrefs.Save();
-
-        // 2. Cargamos el Nivel 1 (Usa la variable nombreEscenaJuego del Inspector)
-        SceneManager.LoadScene(nombreEscenaJuego);
-    }
-
-    // Función para el botón "CONTINUAR"
-    public void ContinuarJuego()
-    {
-        ReproducirSonidoBoton();
-
-        // Lee el índice de la escena guardada (si no hay, carga el índice 1 por defecto)
-        int escenaAGuardar = PlayerPrefs.GetInt("EscenaGuardada", 1);
-        SceneManager.LoadScene(escenaAGuardar);
     }
 }

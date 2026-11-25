@@ -355,4 +355,17 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(recargaDash);
         puedeDash = true;
     }
+
+    public void RotarCamaraDesdePantalla(Vector2 deltaTactil)
+    {
+        if (transfCamara == null) return;
+
+        // Rotacion vertical (mirar arriba/abajo)
+        rotVert -= deltaTactil.y * sensJoystick;
+        rotVert = Mathf.Clamp(rotVert, -80f, 80f);
+        transfCamara.localRotation = Quaternion.Euler(rotVert, 0f, 0f);
+
+        // Rotacion horizontal (girar el cuerpo del jugador)
+        transform.Rotate(Vector3.up * deltaTactil.x * sensJoystick);
+    }
 }

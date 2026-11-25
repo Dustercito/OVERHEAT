@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class CerebroEnemigoBasico : MonoBehaviour
 {
     [Header("Referencias")]
@@ -22,7 +23,7 @@ public class CerebroEnemigoBasico : MonoBehaviour
     [Header("Parametros de Combate e IA")]
     [SerializeField] private float distanciaAtaque = 3.5f;
     [SerializeField] private float velocidadPersecucion = 2.5f;
-    [SerializeField] private float danioAtaque = 20.0f; // <-- PARAMETRO EDITABLE DE DAÑO AL JUGADOR
+    [SerializeField] private float danioAtaque = 20.0f;
 
     [Header("Patrullaje")]
     [SerializeField] private Transform[] puntosPatrulla;
@@ -43,7 +44,9 @@ public class CerebroEnemigoBasico : MonoBehaviour
     [SerializeField][Range(0.05f, 1.0f)] private float duracionEmbestida = 0.3f;
     [SerializeField] private float duracionAturdimiento = 2.0f;
 
-    // Propiedades públicas
+    private CharacterController controller;
+
+    // Propiedades publicas
     public float DistanciaDeteccion => distanciaDeteccion;
     public float DistanciaAtaque => distanciaAtaque;
     public float DuracionAlerta => duracionAlerta;
@@ -52,6 +55,8 @@ public class CerebroEnemigoBasico : MonoBehaviour
 
     private void Awake()
     {
+        controller = GetComponent<CharacterController>();
+
         if (saludEnemigo == null)
         {
             saludEnemigo = GetComponent<SaludEnemigo>();
@@ -136,7 +141,8 @@ public class CerebroEnemigoBasico : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, velocidadRotacion * Time.deltaTime);
         }
 
-        transform.position += transform.forward * velocidadPatrulla * Time.deltaTime;
+        // Movimiento respetando paredes
+        controller.Move(transform.forward * velocidadPatrulla * Time.deltaTime);
 
         Vector3 posEnemigoPlana = new Vector3(transform.position.x, 0, transform.position.z);
         Vector3 posPuntoPlana = new Vector3(puntoObjetivo.position.x, 0, puntoObjetivo.position.z);
@@ -183,7 +189,8 @@ public class CerebroEnemigoBasico : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(direccionEnemigo);
         }
 
-        transform.position += transform.forward * velocidadPersecucion * Time.deltaTime;
+        // Movimiento respetando paredes
+        controller.Move(transform.forward * velocidadPersecucion * Time.deltaTime);
     }
 
     public bool EstaDemasiadoLejos()
@@ -203,18 +210,25 @@ public class CerebroEnemigoBasico : MonoBehaviour
 
         float temp = 0f;
         Vector3 posInicio = transform.position;
+        Vector3 posAnteriorFrame = posInicio;
 
         while (temp < duracionEmbestida)
         {
             float t = temp / duracionEmbestida;
             float curvaSuave = Mathf.Sin(t * Mathf.PI * 0.5f);
 
-            transform.position = Vector3.Lerp(posInicio, posicionObjetivoAtacar, curvaSuave);
+            Vector3 siguientePos = Vector3.Lerp(posInicio, posicionObjetivoAtacar, curvaSuave);
+            Vector3 desplazamiento = siguientePos - posAnteriorFrame;
+            desplazamiento.y = 0f;
+
+            // Embestida respetando paredes
+            controller.Move(desplazamiento);
+
+            posAnteriorFrame = siguientePos;
             temp += Time.deltaTime;
             yield return null;
         }
 
-        // Deteccion de impacto de daño al finalizar el movimiento de la embestida
         float distanciaAlJugador = ObtenerDistanciaAlJugador();
         if (distanciaAlJugador <= 1.8f)
         {

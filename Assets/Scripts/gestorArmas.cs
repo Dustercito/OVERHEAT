@@ -76,4 +76,17 @@ public class GestorArmas : MonoBehaviour
     {
         if (armaActiva == 2 && armaPistola != null) armaPistola.Recargar();
     }
+
+    public void AlternarArma()
+    {
+        // Si la pistola esta activa, cambia al cuchillo (1); de lo contrario, equipa la pistola (2)
+        if (armaPistola != null && armaPistola.gameObject.activeSelf)
+        {
+            EquiparArma(1);
+        }
+        else
+        {
+            EquiparArma(2);
+        }
+    }
 }

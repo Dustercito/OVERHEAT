@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 344651548472088468}
   - component: {fileID: 5515957378302843702}
   - component: {fileID: 2418527816851403355}
+  - component: {fileID: 4822749791819819527}
   m_Layer: 8
   m_Name: enemigoBasico
   m_TagString: Untagged
@@ -261,11 +262,11 @@ MonoBehaviour:
   anguloVision: 40
   capasObstaculos:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   tiempoReaccion: 0.1
   distanciaAtaque: 3
   velocidadPersecucion: 5
-  danioAtaque: 20
+  danioAtaque: 15
   puntosPatrulla:
   - {fileID: 0}
   - {fileID: 0}
@@ -318,6 +319,31 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   mostrarGizmos: 1
+--- !u!143 &4822749791819819527
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2703657422246513304}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5496421826114890505
 GameObject:
   m_ObjectHideFlags: 0
