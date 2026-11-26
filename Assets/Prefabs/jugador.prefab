@@ -986,6 +986,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GestorArmas
   armaCuchillo: {fileID: 2490411103047296963}
   armaPistola: {fileID: 8238081067618125347}
+  imagenBotonAtaque: {fileID: 0}
+  iconoManosVacias: {fileID: 0}
+  iconoCuchillo: {fileID: 4827973, guid: f8fe7acc23fdd5a42a4aed4f735df82e, type: 3}
+  iconoPistola: {fileID: -280967059, guid: f8fe7acc23fdd5a42a4aed4f735df82e, type: 3}
   tieneCuchillo: 1
   tienePistola: 1
   tieneEscopeta: 0
