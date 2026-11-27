@@ -236,4 +236,10 @@ public class ArmaPistola : MonoBehaviour
             renderizadorSprite.sprite = nuevoSprite;
         }
     }
+
+    public void EstablecerMunicion(int cargador, int reserva)
+    {
+        municionActual = Mathf.Clamp(cargador, 0, tamanoCargador);
+        municionReserva = Mathf.Max(0, reserva);
+    }
 }

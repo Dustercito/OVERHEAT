@@ -299,4 +299,10 @@ public class SaludJugador : MonoBehaviour
 
         SceneManager.LoadScene(nombreMenuPrincipal);
     }
+
+    public void EstablecerVida(float nuevaVida)
+    {
+        if (estaMuerto) return;
+        vidaActual = Mathf.Clamp(nuevaVida, 0f, vidaMaxima);
+    }
 }

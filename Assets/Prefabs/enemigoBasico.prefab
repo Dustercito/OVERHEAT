@@ -262,17 +262,17 @@ MonoBehaviour:
   anguloVision: 40
   capasObstaculos:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 200
   tiempoReaccion: 0.1
   distanciaAtaque: 3
   velocidadPersecucion: 5
-  danioAtaque: 15
+  danioAtaque: 5
   puntosPatrulla:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   velocidadPatrulla: 4
-  distanciaCambioPunto: 0.5
+  distanciaCambioPunto: 2
   velocidadRotacion: 5
   tiempoEsperaMin: 0.2
   tiempoEsperaMax: 1
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1439f174021b04d974d5362c2da05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaludEnemigo
-  vidaMaxima: 100
+  vidaMaxima: 50
   renderizaSprites: {fileID: 2388178026049689268}
   cartelera: {fileID: 4640599259805087422}
   fuenteAudio: {fileID: 4521101900128340612}
@@ -317,7 +317,8 @@ MonoBehaviour:
   radioPatrulla: 6
   capasObstaculos:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
+  margenPared: 0.6
   mostrarGizmos: 1
 --- !u!143 &4822749791819819527
 CharacterController:

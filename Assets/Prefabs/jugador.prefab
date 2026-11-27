@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa18e35eeff6b9bfb86f7e4c7a2d966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArmaPistola
-  danio: 30
+  danio: 50
   alcanceDisparo: 10
   recargaDisparo: 0.19
   capasEnemigo:
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4787f4293594dd52bacdc63714f864c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArmaCuchillo
-  danio: 35
+  danio: 30
   alcanceAtaque: 4
   recargaAtaque: 0.6
   capasEnemigo:
@@ -987,12 +987,10 @@ MonoBehaviour:
   armaCuchillo: {fileID: 2490411103047296963}
   armaPistola: {fileID: 8238081067618125347}
   imagenBotonAtaque: {fileID: 0}
-  iconoManosVacias: {fileID: 0}
   iconoCuchillo: {fileID: 4827973, guid: f8fe7acc23fdd5a42a4aed4f735df82e, type: 3}
   iconoPistola: {fileID: -280967059, guid: f8fe7acc23fdd5a42a4aed4f735df82e, type: 3}
   tieneCuchillo: 1
   tienePistola: 1
-  tieneEscopeta: 0
 --- !u!114 &4131757087848874885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,10 +1013,10 @@ MonoBehaviour:
   clipMuerte: {fileID: 8300000, guid: d7aed2ec0f1dbc547a7eb9c745fee6e1, type: 3}
   tiempoInvulnerable: 0.8
   objetoVideoPlayer: {fileID: 0}
-  duracionCinematica: 2.5
+  duracionCinematica: 8
   hudJugador: {fileID: 0}
   panelGameOver: {fileID: 0}
-  nombreMenuPrincipal: MainMenu
+  nombreMenuPrincipal: Main_Menu
 --- !u!114 &9186159231946789355
 MonoBehaviour:
   m_ObjectHideFlags: 0

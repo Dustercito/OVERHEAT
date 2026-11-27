@@ -9,24 +9,30 @@ public class GestorArmas : MonoBehaviour
 
     [Header("UI Dinamica Boton Ataque")]
     [SerializeField] private Image imagenBotonAtaque;
-    [SerializeField] private Sprite iconoManosVacias; // Opcional (puedes dejarlo vacio)
     [SerializeField] private Sprite iconoCuchillo;
     [SerializeField] private Sprite iconoPistola;
 
     [Header("Estado del Inventario")]
-    public bool tieneCuchillo = false;
+    public bool tieneCuchillo = true;
     public bool tienePistola = false;
-    public bool tieneEscopeta = false;
 
-    // 0 = Manos vacias, 1 = Cuchillo, 2 = Pistola
+    // 0 = Ninguna, 1 = Cuchillo, 2 = Pistola
     private int armaActiva = 0;
 
     private void Start()
     {
-        ActualizarArmaActiva();
+        // Si no se ha equipado nada desde SaveManager, equipar el cuchillo por defecto
+        if (armaActiva == 0 && tieneCuchillo)
+        {
+            EquiparArma(1);
+        }
+        else
+        {
+            ActualizarArmaActiva();
+        }
     }
 
-    public bool RecogerItem(ItemRecogible.TipoItem tipo, int cantidadMunicion)
+    public bool RecogerItem(ItemRecogible.TipoItem tipo, int cantidad)
     {
         switch (tipo)
         {
@@ -45,7 +51,7 @@ public class GestorArmas : MonoBehaviour
             case ItemRecogible.TipoItem.MunicionPistola:
                 if (armaPistola != null)
                 {
-                    armaPistola.AgregarMunicionReserva(cantidadMunicion);
+                    armaPistola.AgregarMunicionReserva(cantidad);
                     return true;
                 }
                 return false;
@@ -102,16 +108,7 @@ public class GestorArmas : MonoBehaviour
         }
         else
         {
-            if (iconoManosVacias != null)
-            {
-                imagenBotonAtaque.enabled = true;
-                imagenBotonAtaque.sprite = iconoManosVacias;
-            }
-            else
-            {
-                // Oculta el boton de disparo mientras no tengas ningun arma recogida
-                imagenBotonAtaque.enabled = false;
-            }
+            imagenBotonAtaque.enabled = false;
         }
     }
 

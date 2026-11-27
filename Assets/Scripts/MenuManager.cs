@@ -65,6 +65,11 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.DeleteKey("JugadorPosX");
         PlayerPrefs.DeleteKey("JugadorPosY");
         PlayerPrefs.DeleteKey("JugadorPosZ");
+        PlayerPrefs.DeleteKey("UsarPosicionGuardada");
+        PlayerPrefs.DeleteKey("MunicionActualPistola");
+        PlayerPrefs.DeleteKey("MunicionReservaPistola");
+        PlayerPrefs.DeleteKey("TieneCuchillo");
+        PlayerPrefs.DeleteKey("TienePistola");
         PlayerPrefs.Save();
 
         // 2. Iniciar rutina del video antes de cargar el Nivel 1

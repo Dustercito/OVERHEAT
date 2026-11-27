@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 3595853868620623104}
   - component: {fileID: 8380128335096146287}
   - component: {fileID: 514411403662022383}
+  - component: {fileID: 165526177310304084}
   m_Layer: 8
   m_Name: jefeTutorial
   m_TagString: Untagged
@@ -352,7 +353,7 @@ MonoBehaviour:
   posicionJugador: {fileID: 0}
   rendererEnemigo: {fileID: 0}
   saludEnemigo: {fileID: 8380128335096146287}
-  distanciaDeteccion: 10
+  distanciaDeteccion: 8
   distanciaProximidad: 2.5
   distanciaPerdida: 15
   anguloVision: 90
@@ -362,14 +363,13 @@ MonoBehaviour:
   tiempoReaccion: 1
   distanciaAtaque: 3.5
   velocidadPersecucion: 2.5
-  danioAtaque: 40
+  danioAtaque: 15
   puntosPatrulla:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   velocidadPatrulla: 3
-  distanciaCambioPunto: 0.5
+  distanciaCambioPunto: 3
   velocidadRotacion: 5
   tiempoEsperaMin: 1
   tiempoEsperaMax: 3
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1439f174021b04d974d5362c2da05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaludEnemigo
-  vidaMaxima: 350
+  vidaMaxima: 250
   renderizaSprites: {fileID: 2314071066550427842}
   cartelera: {fileID: 7133036742127118880}
   fuenteAudio: {fileID: 3572262887018459249}
@@ -415,4 +415,30 @@ MonoBehaviour:
   capasObstaculos:
     serializedVersion: 2
     m_Bits: 64
+  margenPared: 0.6
   mostrarGizmos: 1
+--- !u!143 &165526177310304084
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2772145148001206683}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
